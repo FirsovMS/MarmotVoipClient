@@ -34,8 +34,23 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac, Version=4.8.1.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.4.8.1\lib\net45\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Prism, Version=6.3.0.0, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prism.Core.6.3.0\lib\net45\Prism.dll</HintPath>
+    </Reference>
+    <Reference Include="Prism.Wpf, Version=6.3.0.0, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prism.Wpf.6.3.0\lib\net45\Prism.Wpf.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prism.Wpf.6.3.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -54,6 +69,28 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Startup\Bootstrapper.cs" />
+    <Compile Include="ViewModel\DialingPanelViewModel.cs" />
+    <Compile Include="ViewModel\FooterControlsViewModel.cs" />
+    <Compile Include="ViewModel\HistoryCallNavigationViewModel.cs" />
+    <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\PhoneButtonsViewModel.cs" />
+    <Compile Include="ViewModel\PhoneControlViewModel.cs" />
+    <Compile Include="View\DialingView.xaml.cs">
+      <DependentUpon>DialingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\FooterControlsView.xaml.cs">
+      <DependentUpon>FooterControlsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\HistoryCallNavigationView.xaml.cs">
+      <DependentUpon>HistoryCallNavigationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PhoneButtonsView.xaml.cs">
+      <DependentUpon>PhoneButtonsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PhoneControlView.xaml.cs">
+      <DependentUpon>PhoneControlView.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -66,6 +103,26 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\DialingView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\FooterControlsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\HistoryCallNavigationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PhoneButtonsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PhoneControlView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -85,6 +142,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -92,6 +150,22 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Data\Lookups\" />
+    <Folder Include="Data\Repositories\" />
+    <Folder Include="Events\" />
+    <Folder Include="Wrapper\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MarmotVoipClient.DataAccess\MarmotVoipClient.DataAccess.csproj">
+      <Project>{1a0ad842-e165-4da1-b342-d146df45fec9}</Project>
+      <Name>MarmotVoipClient.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MarmotVoipClient.Model\MarmotVoipClient.Model.csproj">
+      <Project>{69d5639b-b6da-442a-bf7a-d40c4823ebef}</Project>
+      <Name>MarmotVoipClient.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

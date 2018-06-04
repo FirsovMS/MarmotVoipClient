@@ -5,6 +5,10 @@ VisualStudioVersion = 15.0.27703.2000
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarmotVoipClient.UI", "MarmotVoipClient.UI\MarmotVoipClient.UI.csproj", "{843C2A60-F749-4532-AE8E-E098306DACE8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarmotVoipClient.Model", "MarmotVoipClient.Model\MarmotVoipClient.Model.csproj", "{69D5639B-B6DA-442A-BF7A-D40C4823EBEF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarmotVoipClient.DataAccess", "MarmotVoipClient.DataAccess\MarmotVoipClient.DataAccess.csproj", "{1A0AD842-E165-4DA1-B342-D146DF45FEC9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{843C2A60-F749-4532-AE8E-E098306DACE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{843C2A60-F749-4532-AE8E-E098306DACE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{843C2A60-F749-4532-AE8E-E098306DACE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69D5639B-B6DA-442A-BF7A-D40C4823EBEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69D5639B-B6DA-442A-BF7A-D40C4823EBEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69D5639B-B6DA-442A-BF7A-D40C4823EBEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69D5639B-B6DA-442A-BF7A-D40C4823EBEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A0AD842-E165-4DA1-B342-D146DF45FEC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A0AD842-E165-4DA1-B342-D146DF45FEC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A0AD842-E165-4DA1-B342-D146DF45FEC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A0AD842-E165-4DA1-B342-D146DF45FEC9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

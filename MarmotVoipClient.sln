@@ -9,6 +9,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarmotVoipClient.Model", "M
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarmotVoipClient.DataAccess", "MarmotVoipClient.DataAccess\MarmotVoipClient.DataAccess.csproj", "{1A0AD842-E165-4DA1-B342-D146DF45FEC9}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{70716411-67A0-4ADE-9682-ADB2682023F5}"
+	ProjectSection(SolutionItems) = preProject
+		data.db = data.db
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

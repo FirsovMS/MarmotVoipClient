@@ -7,6 +7,48 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-            
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <TextBox Margin="5 5 3 4"/>
+            <ComboBox Margin="5 5 3 4"
+                      HorizontalAlignment="Right" />
+        </StackPanel>
+        <Separator Grid.Row="1"/>
+        <DataGrid Grid.Row="2"
+                  AutoGenerateColumns="False" 
+                  Height="138"
+                  ScrollViewer.CanContentScroll="True"
+                  ScrollViewer.VerticalScrollBarVisibility="Auto"
+                  ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                  GridLinesVisibility="Vertical" 
+                  HeadersVisibility="None" 
+                  SelectionMode="Single"
+                  CanUserAddRows="False"
+                  CanUserReorderColumns="False"
+                  IsReadOnly="True"
+                  CanUserSortColumns="False">
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem/>
+                </ContextMenu>
+            </DataGrid.ContextMenu>
+            <DataGrid.Columns>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Binding="{Binding CallHistory.PhoneNumber}"
+                                    Width="150"/>
+                <DataGridTextColumn Binding="{Binding CallHistory.CallStarted}"/>
+                <DataGridTextColumn Binding="{Binding CallHistory.CallEnded}"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </UserControl>

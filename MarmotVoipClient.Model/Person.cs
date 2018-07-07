@@ -4,6 +4,7 @@ namespace MarmotVoipClient.Model
 {
     public class Person
     {
+        [Key]
         public int PersonId { get; set; }
 
         [StringLength(50)]

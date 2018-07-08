@@ -58,8 +58,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MarmotVoipClientDbContext.cs" />
-    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="DAO\CallHistoryDAO.cs" />
+    <Compile Include="DAO\PersonsDAO.cs" />
+    <Compile Include="Executor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

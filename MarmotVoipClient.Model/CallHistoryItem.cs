@@ -1,31 +1,40 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using static MarmotVoipClient.Model.Enums;
 
 namespace MarmotVoipClient.Model
 {
-    public enum CallType
-    {
-        Incoming,
-        Outcoming,
-        Rejected
-    }
-
     public class CallHistoryItem
     {
-        public int Id { get; set; }
+        private Contact contact;
 
-        public string Phone { get; set; }
-        
-        public int PersonId { get; set; }
-        
-        public DateTime CallStarted { get; set; }
+        public Contact Contact
+        {
+            get
+            {
+                return contact;
+            }
+            private set
+            {
+                this.contact = value ?? throw new NullReferenceException("Contact must be not null!");
+            }
+        }
 
-        public DateTime CallEnded { get; set; }
+        public CallDirection CallDirection { get; private set; }
 
-        public CallType CallType { get; set; }
+        public int Id { get; private set; }
+
+        public int ContactID { get; set; }
+
+        public CallHistoryItem(int id, int ContactID, CallDirection callDirection = CallDirection.Incoming)
+        {
+            Id = id;
+            this.Contact = contact;
+            this.CallDirection = CallDirection;
+        }
+
+        public static CallHistoryItem Default()
+        {
+            return new CallHistoryItem(0, 0, CallDirection.Rejected);
+        }
     }
 }

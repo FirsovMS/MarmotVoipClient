@@ -7,12 +7,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarmotVoipClient.UI", "Marm
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarmotVoipClient.Model", "MarmotVoipClient.Model\MarmotVoipClient.Model.csproj", "{69D5639B-B6DA-442A-BF7A-D40C4823EBEF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarmotVoipClient.DataAccess", "MarmotVoipClient.DataAccess\MarmotVoipClient.DataAccess.csproj", "{1A0AD842-E165-4DA1-B342-D146DF45FEC9}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Helpers", "Helpers", "{EB14094D-0331-4B8B-98FA-A77F6837EA18}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{70716411-67A0-4ADE-9682-ADB2682023F5}"
-	ProjectSection(SolutionItems) = preProject
-		data.db = data.db
-	EndProjectSection
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{377298E5-6525-4E1A-BD6B-4C3663AABC6D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarmotVoipClient.DataAccess", "MarmotVoipClient.DataAccess\MarmotVoipClient.DataAccess.csproj", "{8E4B0AC6-FCF8-4BC4-B464-0464254F4D8D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logger", "Logger\Logger.csproj", "{034DBB21-B9BD-42C7-ACC3-96C61325E447}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueryBuilder", "QueryBuilder\QueryBuilder.csproj", "{8E30816C-5149-4388-91DC-B0E526125DC9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -28,13 +31,30 @@ Global
 		{69D5639B-B6DA-442A-BF7A-D40C4823EBEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{69D5639B-B6DA-442A-BF7A-D40C4823EBEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{69D5639B-B6DA-442A-BF7A-D40C4823EBEF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1A0AD842-E165-4DA1-B342-D146DF45FEC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1A0AD842-E165-4DA1-B342-D146DF45FEC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1A0AD842-E165-4DA1-B342-D146DF45FEC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1A0AD842-E165-4DA1-B342-D146DF45FEC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{377298E5-6525-4E1A-BD6B-4C3663AABC6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{377298E5-6525-4E1A-BD6B-4C3663AABC6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{377298E5-6525-4E1A-BD6B-4C3663AABC6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{377298E5-6525-4E1A-BD6B-4C3663AABC6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E4B0AC6-FCF8-4BC4-B464-0464254F4D8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E4B0AC6-FCF8-4BC4-B464-0464254F4D8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E4B0AC6-FCF8-4BC4-B464-0464254F4D8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E4B0AC6-FCF8-4BC4-B464-0464254F4D8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{034DBB21-B9BD-42C7-ACC3-96C61325E447}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{034DBB21-B9BD-42C7-ACC3-96C61325E447}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{034DBB21-B9BD-42C7-ACC3-96C61325E447}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{034DBB21-B9BD-42C7-ACC3-96C61325E447}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E30816C-5149-4388-91DC-B0E526125DC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E30816C-5149-4388-91DC-B0E526125DC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E30816C-5149-4388-91DC-B0E526125DC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E30816C-5149-4388-91DC-B0E526125DC9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{377298E5-6525-4E1A-BD6B-4C3663AABC6D} = {EB14094D-0331-4B8B-98FA-A77F6837EA18}
+		{034DBB21-B9BD-42C7-ACC3-96C61325E447} = {EB14094D-0331-4B8B-98FA-A77F6837EA18}
+		{8E30816C-5149-4388-91DC-B0E526125DC9} = {EB14094D-0331-4B8B-98FA-A77F6837EA18}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CE53B81A-A2AC-4FC6-8893-EE88E041713C}

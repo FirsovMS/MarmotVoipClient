@@ -171,10 +171,6 @@
     <Folder Include="Wrapper\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MarmotVoipClient.DataAccess\MarmotVoipClient.DataAccess.csproj">
-      <Project>{1a0ad842-e165-4da1-b342-d146df45fec9}</Project>
-      <Name>MarmotVoipClient.DataAccess</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MarmotVoipClient.Model\MarmotVoipClient.Model.csproj">
       <Project>{69d5639b-b6da-442a-bf7a-d40c4823ebef}</Project>
       <Name>MarmotVoipClient.Model</Name>

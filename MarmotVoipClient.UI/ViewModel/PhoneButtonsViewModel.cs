@@ -8,7 +8,7 @@ namespace MarmotVoipClient.UI.ViewModel
 {
     public class PhoneButtonsViewModel
     {
-        private string _phoneNumber = String.Empty;
+        private string _phoneNumber = string.Empty;
 
         public string PhoneNumber
         {

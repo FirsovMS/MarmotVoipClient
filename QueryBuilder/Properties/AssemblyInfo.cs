@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("MarmotVoipClient.DataAccess")]
+[assembly: AssemblyTitle("QueryBuilder")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("MarmotVoipClient.DataAccess")]
+[assembly: AssemblyProduct("QueryBuilder")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("8e4b0ac6-fcf8-4bc4-b464-0464254f4d8d")]
+[assembly: Guid("8e30816c-5149-4388-91dc-b0e526125dc9")]
 
 // Version information for an assembly consists of the following four values:
 //

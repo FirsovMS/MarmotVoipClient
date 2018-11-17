@@ -87,7 +87,8 @@
     </ApplicationDefinition>
     <Compile Include="Data\ContactDataService.cs" />
     <Compile Include="Data\IContactDataService.cs" />
-    <Compile Include="Data\LookupDataService.cs" />
+    <Compile Include="Data\IContactLookupDataService.cs" />
+    <Compile Include="Data\ContactLookupDataService.cs" />
     <Compile Include="Startup\Bootstrapper.cs" />
     <Compile Include="ViewModel\ContactNavigationItemViewModel.cs" />
     <Compile Include="ViewModel\ContactNavigationViewModel.cs" />

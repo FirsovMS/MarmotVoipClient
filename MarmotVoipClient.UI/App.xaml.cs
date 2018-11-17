@@ -2,11 +2,6 @@
 using LoggingAPI;
 using MarmotVoipClient.UI.Startup;
 using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace MarmotVoipClient.UI
@@ -18,12 +13,23 @@ namespace MarmotVoipClient.UI
 	{
 		private void Application_Startup(object sender, StartupEventArgs e)
 		{
-			// load bootstraper
 			var bootrstrapper = new Bootstrapper();
 			var container = bootrstrapper.Bootstrap();
 
-			var mainWindow = container.Resolve<MainWindow>();
-			MainWindow.Show();
+			try
+			{
+				var mainWindow = container.Resolve<MainWindow>();
+				MainWindow.Show();
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show("MainWindow not created! See the Log information", "Startup Error");
+				Logger.Error(description: "MainWindow not created!", exception: ex, logLevel: Level.Fatal);
+			}
+			finally
+			{
+				Application.Current.Shutdown();
+			}			
 		}
 
 		private void Application_DispatcherUnhandledException(object sender,

@@ -13,21 +13,24 @@
 			<RowDefinition Height="*"/>
 			<RowDefinition Height="Auto"/>
 		</Grid.RowDefinitions>
-		<Grid>
+		<Grid Height="30">
 			<Grid.ColumnDefinitions>
-				<ColumnDefinition Width="Auto"/>
+				<ColumnDefinition Width="30"/>
 				<ColumnDefinition Width="*"/>
-				<ColumnDefinition Width="Auto"/>
-				<ColumnDefinition Width="Auto"/>
-				<ColumnDefinition Width="Auto"/>
+				<ColumnDefinition Width="30"/>
+				<ColumnDefinition Width="30"/>
+				<ColumnDefinition Width="30"/>
+				<ColumnDefinition Width="30"/>
 			</Grid.ColumnDefinitions>
 			<Button Grid.Column="0" Content="{iconPack:Material ArrowLeft}" Command="{Binding BackCommand}"/>
-			<customcontrols:UserItemView Grid.Column="1" DataContext="{Binding UserView}"/>
-			<Button Grid.Column="2" Content="{iconPack:Material Phone}" Command="{Binding CallCommand}"/>
-			<Button Grid.Column="3" Content="{iconPack:Material Magnify}" Command="{Binding SearchCommand}"/>
-			<Button Grid.Column="4" Content="{iconPack:Material DotsVertical}" Command="{Binding PropertiesCommand}"/>
+			<customcontrols:UserItemView Grid.Column="1" DataContext="{Binding UserView}" Margin="4 0 4 0"/>
+			<Button Grid.Column="2" Content="{iconPack:Material Phone}" Command="{Binding CallCommand}" Margin="0 0 2 0"/>
+			<Button Grid.Column="3" Content="{iconPack:Material Magnify}" Command="{Binding SearchCommand}" Margin="2 0 2 0"/>
+			<Button Grid.Column="4" Content="{iconPack:Material Account}" Command="{Binding ContectInfoCommand}" Margin="2 0 2 0"/>
+			<Button Grid.Column="5" Content="{iconPack:Material DotsVertical}" Command="{Binding PropertiesCommand}" Margin="2 0 0 0"/>
 		</Grid>
-		<ListView Grid.Row="1" ItemsSource="{Binding Messages}" SelectedItem="{Binding Path=SelectedMessage}"/>
+		<ListView Grid.Row="1" ItemsSource="{Binding Messages}" MinHeight="100"
+				  SelectedItem="{Binding Path=SelectedMessage}"/>
 		<Grid Grid.Row="2">
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition Width="*"/>

@@ -12,65 +12,26 @@ namespace MarmotVoipClient.UI.ViewModel
 {
 	public class ContactNavigationItemViewModel : ViewModelBase
 	{
-		private Color colorValue;
-		private string initials;
-		private string firstName;
-		private string lastName;
-		private Message lastMessage;
+		private string displayMember;
 
-		public Color Color
+		public Color Color { get; }
+
+		public int Id { get; }
+
+		public string DisplayMember
 		{
-			get { return colorValue; }
+			get { return displayMember; }
 			set
 			{
-				colorValue = value;
+				displayMember = value;
 				OnPropertyChanged();
 			}
 		}
 
-		public string Initials
+		public ContactNavigationItemViewModel(int id, string displayMember)
 		{
-			get { return initials; }
-			set
-			{
-				initials = value;
-				OnPropertyChanged();
-			}
-		}
-
-		public string FirstName
-		{
-			get { return firstName; }
-			set
-			{
-				firstName = value;
-				OnPropertyChanged();
-			}
-		}
-
-		public string LastName
-		{
-			get { return lastName; }
-			set
-			{
-				lastName = value;
-				OnPropertyChanged();
-			}
-		}
-
-		public Message LastMessage
-		{
-			get { return lastMessage; }
-			set
-			{
-				lastMessage = value;
-				OnPropertyChanged();
-			}
-		}
-
-		public ContactNavigationItemViewModel(Contact contact, Message lastMessage)
-		{
-
+			Id = id;
+			DisplayMember = displayMember;
 		}
 	}
 }

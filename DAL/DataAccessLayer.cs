@@ -6,69 +6,74 @@ using System.Data.SQLite;
 
 namespace DAL
 {
-    public class DataAccessLayer
-    {
-        private Lazy<SQLiteConnection> lazyConnection;
+	public class DataAccessLayer
+	{
+#if DEBUG
+		private static readonly string CONNECTION_STRING = @"Data Source=./data.db;Version=3;";
+#else
+		private static readonly string CONNECTION_STRING = "Data Source=c:\mydb.db;Version=3;";
+#endif
 
-        public DataAccessLayer()
-        {
-            lazyConnection = new Lazy<SQLiteConnection>(
-                () => new SQLiteConnection());
-        }
+		private SQLiteConnection Connection;
 
-        public bool TryExecuteUpdate(string query)
-        {
-            bool result = false;
-            SQLiteCommand command = null;
-            try
-            {
-                // create command statement
-                command = lazyConnection.Value.CreateCommand();
-                command.CommandText = query;
-                result = command.ExecuteNonQuery() == 0;
-            }
-            catch (SQLiteException ex)
-            {
-                Logger.Error("Can't execute query!", query, ex, Level.Error);
-            }
-            finally
-            {
-                command?.Dispose();
-                lazyConnection.Value?.Close();
-            }
-            return result;
-        }
+		public DataAccessLayer()
+		{
+			Connection = new SQLiteConnection(CONNECTION_STRING);
+		}
 
-        public IEnumerable<T> ExecuteQuery<T>(string query, Func<DataRow, T> handleFactory)
-        {
-            var result = new List<T>();
-            SQLiteCommand command = null;
+		public bool TryExecuteUpdate(string query)
+		{
+			bool result = false;
+			SQLiteCommand command = null;
+			try
+			{
+				// create command statement
+				command = Connection.CreateCommand();
+				command.CommandText = query;
+				result = command.ExecuteNonQuery() == 0;
+			}
+			catch (SQLiteException ex)
+			{
+				Logger.Error("Can't execute query!", query, ex, Level.Error);
+			}
+			finally
+			{
+				command?.Dispose();
+				Connection?.Close();
+			}
+			return result;
+		}
 
-            try
-            {
-                var dt = new DataTable();
-                command = lazyConnection.Value.CreateCommand();
-                command.CommandText = query;
+		public IEnumerable<T> ExecuteQuery<T>(string query, Func<DataRow, T> handleFactory)
+		{
+			var result = new List<T>();
+			SQLiteCommand command = null;
 
-                dt.Load(command.ExecuteReader());
+			try
+			{
+				var dt = new DataTable();
+				command = Connection.CreateCommand();
+				command.CommandText = query;
 
-                if (dt.Rows.Count > 0)
-                {
-                    result.AddRange(dt.AsEnumerable().Select(row => handleFactory(row)));
-                    return result;
-                }
-            }
-            catch (SQLiteException ex)
-            {
-                Logger.Error("Can't execute query!", query, ex, Level.Error);
-            }
-            finally
-            {
-                command?.Dispose();
-                lazyConnection.Value?.Close();
-            }
+				dt.Load(command.ExecuteReader());
 
-            return result;
-        }
-    }
+				if (dt.Rows.Count > 0)
+				{
+					result.AddRange(dt.AsEnumerable().Select(row => handleFactory(row)));
+					return result;
+				}
+			}
+			catch (SQLiteException ex)
+			{
+				Logger.Error("Can't execute query!", query, ex, Level.Error);
+			}
+			finally
+			{
+				command?.Dispose();
+				Connection?.Close();
+			}
+
+			return result;
+		}
+	}
 }

@@ -4,18 +4,20 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 			 mc:Ignorable="d">
+	<UserControl.Resources>
+		<SolidColorBrush x:Key="MessageLabelColor" Color="#555555"/>
+	</UserControl.Resources>
 	<Grid>
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="Auto"/>
 			<ColumnDefinition/>
 		</Grid.ColumnDefinitions>
-		<Border CornerRadius="50" Background="{Binding Color}">
-			<Label Content="{Binding Initials, TargetNullValue=Text}" 
-				   HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		<Border CornerRadius="50" Background="Aqua" MinHeight="24" MinWidth="24">
+			<Label Content="Text" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 		</Border>
 		<StackPanel Orientation="Vertical" Grid.Column="1">
-			<Label Content="{Binding ProfileName, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
-			<Label Content="{Binding Message, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+			<Label Content="{Binding DisplayMember, FallbackValue='DisplayMember'}" FontWeight="Bold" FontSize="10"/>
+			<Label Content="Message" FontSize="12" Foreground="{StaticResource MessageLabelColor}"/>
 		</StackPanel>
 	</Grid>
 </UserControl>

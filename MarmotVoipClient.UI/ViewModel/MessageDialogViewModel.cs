@@ -1,14 +1,17 @@
 ﻿using MahApps.Metro.IconPacks;
 using MarmotVoipClient.Model.Data;
+using MarmotVoipClient.UI.Events;
 using Prism.Commands;
+using Prism.Events;
 using System;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 
 namespace MarmotVoipClient.UI.ViewModel
 {
-	public class MessageDialogViewModel : ViewModelBase
+	public class MessageDialogViewModel : ViewModelBase, IMessageDialogViewModel
 	{
+		private IEventAggregator eventAggregator;
 		private ObservableCollection<Message> messages;
 		private Message selectedMessage;
 		private PackIconMaterial iconSend;
@@ -63,10 +66,14 @@ namespace MarmotVoipClient.UI.ViewModel
 
 		public ICommand PropertiesCommand { get; }
 
-		public ICommand SendCommand { get; set; }
+		public ICommand SendCommand { get; }
 
-		public MessageDialogViewModel()
+		public ICommand ContectInfoCommand { get; }
+
+		public MessageDialogViewModel(IEventAggregator eventAggregator)
 		{
+			this.eventAggregator = eventAggregator;
+
 			IconSend = new PackIconMaterial()
 			{
 				Kind = PackIconMaterialKind.Microphone
@@ -76,11 +83,33 @@ namespace MarmotVoipClient.UI.ViewModel
 			CallCommand = new DelegateCommand(OnCallCommandExecute);
 			SearchCommand = new DelegateCommand(OnSearchCommandExecute);
 			PropertiesCommand = new DelegateCommand(OnPropertiesCommandExecute);
+			SendCommand = new DelegateCommand(OnSendCommandExecute);
+			ContectInfoCommand = new DelegateCommand(OnUserInfoCommandExecute);
+
+			eventAggregator.GetEvent<OpenMessageDialogViewEvent>()
+				.Subscribe(AfterOpenMessageDialog);
 		}
 
-		public void Load()
+		// TODO: Implement load stored in database messages
+		public void Load(int contactId)
 		{
+			throw new NotImplementedException();
+		}
 
+		private void OnUserInfoCommandExecute()
+		{
+			throw new NotImplementedException();
+		}
+
+		private void OnSendCommandExecute()
+		{
+			throw new NotImplementedException();
+		}
+
+		// TODO: Load contact messages
+		private void AfterOpenMessageDialog(int contactId)
+		{
+			throw new NotImplementedException();
 		}
 
 		private void UpdateSendIcon()

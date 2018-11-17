@@ -9,6 +9,6 @@ namespace LoggingAPI.Data
 
 		public Level LogLevel { get; set; }
 
-		public string Description { get; set; }
+		public ErrorDescription Error { get; set; }
 	}
 }

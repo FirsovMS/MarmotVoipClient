@@ -1,5 +1,6 @@
 ﻿using MarmotVoipClient.Model;
 using MarmotVoipClient.UI.Data;
+using MarmotVoipClient.UI.Events;
 using Prism.Commands;
 using Prism.Events;
 using System;
@@ -8,12 +9,13 @@ using System.Windows.Input;
 
 namespace MarmotVoipClient.UI.ViewModel
 {
-	public class ContactNavigationViewModel : ViewModelBase
+	public class ContactNavigationViewModel : ViewModelBase, IContactNavigationViewModel
 	{
 		private IContactLookupDataService contactDataService;
 		private IEventAggregator eventAggregator;
 		private string searchText;
 		private ObservableCollection<ContactNavigationItemViewModel> contacts;
+		private ContactNavigationItemViewModel selectedContact;
 
 		public string SearchText
 		{
@@ -36,8 +38,6 @@ namespace MarmotVoipClient.UI.ViewModel
 			}
 		}
 
-		private ContactNavigationItemViewModel selectedContact;
-
 		public ContactNavigationItemViewModel SelectedContact
 		{
 			get { return selectedContact; }
@@ -47,7 +47,8 @@ namespace MarmotVoipClient.UI.ViewModel
 				OnPropertyChanged();
 				if (selectedContact != null)
 				{
-
+					eventAggregator.GetEvent<OpenMessageDialogViewEvent>()
+						.Publish(selectedContact.Id);
 				}
 			}
 		}
@@ -59,16 +60,18 @@ namespace MarmotVoipClient.UI.ViewModel
 		{
 			this.contactDataService = contactDataService;
 			this.eventAggregator = eventAggregator;
-
+			Contacts = new ObservableCollection<ContactNavigationItemViewModel>();
 			MenuCommand = new DelegateCommand(OnMenuCommandExecute);
 		}
 
 		public void Load()
 		{
 			var lookups = contactDataService.GetLookups();
+
+			Contacts.Clear();
 			foreach (var item in lookups)
 			{
-
+				Contacts.Add(new ContactNavigationItemViewModel(item.Id, item.DisplayMember));
 			}
 		}
 

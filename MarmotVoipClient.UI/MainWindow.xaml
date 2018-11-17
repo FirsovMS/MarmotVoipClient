@@ -14,6 +14,6 @@
 			<ColumnDefinition Width="*"/>
 		</Grid.ColumnDefinitions>
 		<view:ContactNavigationView Width="240" DataContext="{Binding ContactNavigation}"/>
-		<view:MessageDialogView Grid.Column="1" DataContext="{Binding MessageDialog}" Visibility="Visible"/>
+		<view:MessageDialogView Grid.Column="1" DataContext="{Binding MessageDialogs}" Visibility="Visible"/>
 	</Grid>
 </Window>

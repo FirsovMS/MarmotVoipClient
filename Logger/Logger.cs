@@ -23,7 +23,11 @@ namespace LoggingAPI
 		{
 			var message = new ErrorMessage()
 			{
-				Description = description,
+				Description = new ErrorDescription()
+				{
+					Description = description,
+					StackTrace = exception.StackTrace
+				},
 				Date = DateTime.Now,
 				LogLevel = logLevel
 			};
@@ -34,7 +38,11 @@ namespace LoggingAPI
 		{
 			var message = new ErrorMessageWithSql()
 			{
-				Description = description,
+				Description = new ErrorDescription()
+				{
+					Description = description,
+					StackTrace = exception.StackTrace
+				},
 				SqlQuery = sqlQuery,
 				Date = DateTime.Now,
 				LogLevel = logLevel

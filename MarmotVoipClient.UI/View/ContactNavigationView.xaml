@@ -4,8 +4,6 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 			 xmlns:iconPack="http://metro.mahapps.com/winfx/xaml/iconpacks"
-             xmlns:local="clr-namespace:MarmotVoipClient.UI.View"
-			 xmlns:customcontrols="clr-namespace:MarmotVoipClient.UI.View.CustomControls"
 			 mc:Ignorable="d" 
              d:DesignHeight="200" d:DesignWidth="250">
 	<Grid>

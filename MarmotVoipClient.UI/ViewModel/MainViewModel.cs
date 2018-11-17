@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MarmotVoipClient.UI.ViewModel
 {
-    public class MainViewModel
+    public class MainViewModel : ViewModelBase
     {
 
     }

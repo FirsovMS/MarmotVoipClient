@@ -42,11 +42,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants.cs" />
-    <Compile Include="DataObjectBase.cs" />
     <Compile Include="CallHistoryDAO.cs" />
     <Compile Include="ContactsDAO.cs" />
     <Compile Include="IBaseActions.cs" />
-    <Compile Include="MarmotVoipClientDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

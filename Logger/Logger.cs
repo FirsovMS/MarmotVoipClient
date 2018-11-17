@@ -9,9 +9,7 @@ namespace LoggingAPI
 
 		static Logger()
 		{
-			logger = new Lazy<NLog.Logger>(() =>
-					   LogManager.GetCurrentClassLogger()
-			, true);
+			logger = new Lazy<NLog.Logger>(() => LogManager.GetCurrentClassLogger(), true);
 		}
 
 		public static void Info(string description)
@@ -19,9 +17,14 @@ namespace LoggingAPI
 			logger.Value.Info(description);
 		}
 
-		public static void Error(string description, string query = null , Exception exception = null, Level warningLevel = Level.Debug)
+		public static void Error(string description, Exception exception = null, Level logLevel = Level.Debug)
 		{
-			switch (warningLevel)
+			
+		}
+
+		public static void Error(string description, string query = null, Exception exception = null, Level logLevel = Level.Debug)
+		{
+			switch (logLevel)
 			{
 				case Level.Trace:
 					logger.Value.Trace(exception, description);

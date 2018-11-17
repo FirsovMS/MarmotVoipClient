@@ -1,35 +1,24 @@
 ﻿using Autofac;
 using MarmotVoipClient.UI.ViewModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Prism.Events;
 
 namespace MarmotVoipClient.UI.Startup
 {
-    public class Bootstrapper
-    {
-        public IContainer Bootstrap()
-        {
-            // create container
-            var builder = new ContainerBuilder();
+	public class Bootstrapper
+	{
+		public IContainer Bootstrap()
+		{
+			var builder = new ContainerBuilder();
 
-            //todo: register events
+			builder.RegisterType<EventAggregator>().As<IEventAggregator>().SingleInstance();
 
-            //todo: register DbContext
+			// register dependieces
+			builder.RegisterType<MainWindow>().AsSelf();
+			builder.RegisterType<MainViewModel>().AsSelf();
+			//builder.RegisterType<ContactNavigationViewModel>().AsSelf();
+			//builder.RegisterType<ContactNavigationViewModel>().AsSelf();
 
-            // register dependieces
-            builder.RegisterType<MainWindow>().AsSelf();
-
-            builder.RegisterType<MainViewModel>().AsSelf();
-            
-            //todo: register all viewModels
-
-
-            //todo: register services
-
-            return builder.Build();
-        }
-    }
+			return builder.Build();
+		}
+	}
 }

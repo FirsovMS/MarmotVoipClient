@@ -50,7 +50,7 @@ namespace MarmotVoipClient.DataAccess
             }
             catch (Exception ex)
             {
-                Logger.Error("Can't get all CallHistoryItems!", query: Constants.DA_CONTACTS_GET_ALL, exception: ex, warningLevel: Level.Error);
+                Logger.Error("Can't get all CallHistoryItems!", query: Constants.DA_CONTACTS_GET_ALL, exception: ex, logLevel: Level.Error);
             }
             return result;
         }
@@ -80,7 +80,7 @@ namespace MarmotVoipClient.DataAccess
             }
             catch (Exception ex)
             {
-                Logger.Error("Can't handle or get CallHistoryItem by ID!", query: query, exception: ex, warningLevel: Level.Error);
+                Logger.Error("Can't handle or get CallHistoryItem by ID!", query: query, exception: ex, logLevel: Level.Error);
             }
             return opResult;
         }

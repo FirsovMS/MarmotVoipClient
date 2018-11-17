@@ -13,16 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MarmotVoipClient.UI.View
+namespace MarmotVoipClient.UI.View.CustomControls
 {
-    /// <summary>
-    /// Interaction logic for PhoneButtonsView.xaml
-    /// </summary>
-    public partial class PhoneButtonsView : UserControl
-    {
-        public PhoneButtonsView()
-        {
-            InitializeComponent();
-        }
-    }
+	/// <summary>
+	/// Interaction logic for UserItemView.xaml
+	/// </summary>
+	public partial class UserItemView : UserControl
+	{
+		public UserItemView()
+		{
+			InitializeComponent();
+		}
+	}
 }

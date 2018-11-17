@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace MarmotVoipClient.DataAccess
+namespace MarmotVoipClient.UI.ViewModel
 {
-	public abstract class DataObjectBase : INotifyPropertyChanged
+	public class ViewModelBase : INotifyPropertyChanged
 	{
 		public event PropertyChangedEventHandler PropertyChanged;
 

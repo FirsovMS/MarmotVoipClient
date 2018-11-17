@@ -1,5 +1,4 @@
-﻿using MarmotVoipClient.Model;
-using System;
+﻿using MarmotVoipClient.Model.Data;
 using System.Drawing;
 
 namespace MarmotVoipClient.UI.ViewModel.CustomControls

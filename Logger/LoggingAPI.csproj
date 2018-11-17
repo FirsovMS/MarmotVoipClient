@@ -49,6 +49,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\ErrorMessage.cs" />
+    <Compile Include="Data\ErrorMessageWithSql.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -61,6 +63,12 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Addititonals\Addititonals.csproj">
+      <Project>{d019d632-e765-4168-a033-afc4e0fb69d8}</Project>
+      <Name>Addititonals</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

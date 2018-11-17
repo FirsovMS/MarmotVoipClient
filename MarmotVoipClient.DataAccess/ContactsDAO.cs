@@ -1,6 +1,6 @@
 ﻿using DAL;
 using LoggingAPI;
-using MarmotVoipClient.Model;
+using MarmotVoipClient.Model.Data;
 using QueryBuilder;
 using System;
 using System.Collections.Generic;
@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace MarmotVoipClient.DataAccess
 {
-    public class ContactsDAO : IBaseActions<Contact>
+	public class ContactsDAO : IBaseActions<Contact>
     {
         private readonly DataAccessLayer dal;
         private readonly QueryBuilderInstance queryBuilder;
@@ -58,7 +58,7 @@ namespace MarmotVoipClient.DataAccess
             }
             catch (Exception ex)
             {
-                Logger.Error("Can't handle or get contact by ID!", query: query, exception: ex, logLevel: Level.Error);
+                Logger.Error("Can't handle or get contact by ID!", query, exception: ex, logLevel: Level.Error);
             }
             return opResult;
         }
@@ -78,7 +78,7 @@ namespace MarmotVoipClient.DataAccess
             }
             catch (Exception ex)
             {
-                Logger.Error("Can't get all contacts!", query: Constants.DA_CONTACTS_GET_ALL, exception: ex, logLevel: Level.Error);
+                Logger.Error("Can't get all contacts!", Constants.DA_CONTACTS_GET_ALL, exception: ex, logLevel: Level.Error);
             }
             return result;
         }

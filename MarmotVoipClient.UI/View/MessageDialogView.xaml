@@ -27,15 +27,14 @@
 			<Button Grid.Column="3" Content="{iconPack:Material Magnify}" Command="{Binding SearchCommand}"/>
 			<Button Grid.Column="4" Content="{iconPack:Material DotsVertical}" Command="{Binding PropertiesCommand}"/>
 		</Grid>
-		<ListView Grid.Row="1" ItemsSource="{Binding Messages}" SelectedItem="{Binding Path=SelectedMessage}">
-			<Grid Grid.Row="2">
-			<Grid.ColumnDefinitions>
-				<ColumnDefinition Width="*"/>
-				<ColumnDefinition Width="Auto"/>
-			</Grid.ColumnDefinitions>
-			<TextBox Text="{Binding MessageText}" VerticalAlignment="Center"/>
-			<Button Grid.Column="0" Content="{Binding IconSend}" 
-					Command="{Binding SendCommand}"/>
-		</Grid>
+		<ListView Grid.Row="1" ItemsSource="{Binding Messages}" SelectedItem="{Binding Path=SelectedMessage}"/>
+		<Grid Grid.Row="2">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="Auto"/>
+				</Grid.ColumnDefinitions>
+				<TextBox Text="{Binding MessageText}" VerticalAlignment="Center"/>
+				<Button Grid.Column="0" Content="{Binding IconSend}" Command="{Binding SendCommand}"/>
+			</Grid>
 	</Grid>
 </UserControl>

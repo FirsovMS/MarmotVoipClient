@@ -1,12 +1,12 @@
 ﻿using LoggingAPI;
 using MarmotVoipClient.DataAccess;
-using MarmotVoipClient.Model;
+using MarmotVoipClient.Model.Data;
 
 namespace MarmotVoipClient.UI.Data
 {
-	public class ContactDataService
-    {
-		private ContactsDAO ContactsDAO;
+	public class ContactDataService : IContactDataService
+	{
+		private readonly ContactsDAO ContactsDAO;
 
 		public ContactDataService(ContactsDAO contactsDAO)
 		{
@@ -18,13 +18,14 @@ namespace MarmotVoipClient.UI.Data
 			Contact result = null;
 			if (!ContactsDAO.TryGet(contactId, out result))
 			{
-				Logger.Error
+				Logger.Error($"Can't get contact by id: {contactId}");
 			}
+			return result;
 		}
 
 		public void Save(Contact contact)
 		{
-
+			ContactsDAO.Update(contact);
 		}
 	}
 }

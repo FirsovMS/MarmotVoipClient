@@ -1,7 +1,7 @@
 ﻿using System;
 using static MarmotVoipClient.Model.Enums;
 
-namespace MarmotVoipClient.Model
+namespace MarmotVoipClient.Model.Data
 {
     public class CallHistoryItem
     {

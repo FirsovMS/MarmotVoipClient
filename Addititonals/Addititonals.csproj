@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8E4B0AC6-FCF8-4BC4-B464-0464254F4D8D}</ProjectGuid>
+    <ProjectGuid>{D019D632-E765-4168-A033-AFC4E0FB69D8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MarmotVoipClient.DataAccess</RootNamespace>
-    <AssemblyName>MarmotVoipClient.DataAccess</AssemblyName>
+    <RootNamespace>Addititonals</RootNamespace>
+    <AssemblyName>Addititonals</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,29 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Constants.cs" />
-    <Compile Include="CallHistoryDAO.cs" />
-    <Compile Include="ContactsDAO.cs" />
-    <Compile Include="IBaseActions.cs" />
+    <Compile Include="SerializeHelpers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DAL\DAL.csproj">
-      <Project>{377298e5-6525-4e1a-bd6b-4c3663aabc6d}</Project>
-      <Name>DAL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Logger\LoggingAPI.csproj">
-      <Project>{034DBB21-B9BD-42C7-ACC3-96C61325E447}</Project>
-      <Name>LoggingAPI</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MarmotVoipClient.Model\MarmotVoipClient.Model.csproj">
-      <Project>{69d5639b-b6da-442a-bf7a-d40c4823ebef}</Project>
-      <Name>MarmotVoipClient.Model</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\QueryBuilder\QueryBuilder.csproj">
-      <Project>{8e30816c-5149-4388-91dc-b0e526125dc9}</Project>
-      <Name>QueryBuilder</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

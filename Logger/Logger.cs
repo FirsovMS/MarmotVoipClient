@@ -1,48 +1,68 @@
-﻿using NLog;
+﻿using Addititonals;
+using LoggingAPI.Data;
+using NLog;
 using System;
 
 namespace LoggingAPI
 {
 	public static class Logger
 	{
-		private static Lazy<NLog.Logger> logger;
+		private static NLog.Logger logger;
 
 		static Logger()
 		{
-			logger = new Lazy<NLog.Logger>(() => LogManager.GetCurrentClassLogger(), true);
+			logger = LogManager.GetCurrentClassLogger();
 		}
 
 		public static void Info(string description)
 		{
-			logger.Value.Info(description);
+			logger.Info(description);
 		}
 
 		public static void Error(string description, Exception exception = null, Level logLevel = Level.Debug)
 		{
-			
+			var message = new ErrorMessage()
+			{
+				Description = description,
+				Date = DateTime.Now,
+				LogLevel = logLevel
+			};
+			LogError(message);
 		}
 
-		public static void Error(string description, string query = null, Exception exception = null, Level logLevel = Level.Debug)
+		public static void Error(string description, string sqlQuery, Exception exception = null, Level logLevel = Level.Debug)
 		{
-			switch (logLevel)
+			var message = new ErrorMessageWithSql()
+			{
+				Description = description,
+				SqlQuery = sqlQuery,
+				Date = DateTime.Now,
+				LogLevel = logLevel
+			};
+			LogError(message);
+		}
+
+		private static void LogError(ErrorMessage message)
+		{
+			switch (message.LogLevel)
 			{
 				case Level.Trace:
-					logger.Value.Trace(exception, description);
+					logger.Trace(message.SerializeObject());
 					break;
 				case Level.Debug:
-					logger.Value.Debug(description);
+					logger.Debug(message.SerializeObject());
 					break;
 				case Level.Info:
-					logger.Value.Info(description);
+					logger.Info(message.SerializeObject());
 					break;
 				case Level.Warn:
-					logger.Value.Warn(description);
+					logger.Warn(message.SerializeObject());
 					break;
 				case Level.Error:
-					logger.Value.Error(exception, description);
+					logger.Error(message.SerializeObject());
 					break;
 				case Level.Fatal:
-					logger.Value.Fatal(exception, description);
+					logger.Fatal(message.SerializeObject());
 					break;
 			}
 		}

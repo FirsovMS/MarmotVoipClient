@@ -41,10 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CallHistoryItem.cs" />
-    <Compile Include="Contact.cs" />
+    <Compile Include="Data\CallHistoryItem.cs" />
+    <Compile Include="Data\Contact.cs" />
     <Compile Include="Enums.cs" />
-    <Compile Include="Message.cs" />
+    <Compile Include="Data\Message.cs" />
+    <Compile Include="ContactLookupItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

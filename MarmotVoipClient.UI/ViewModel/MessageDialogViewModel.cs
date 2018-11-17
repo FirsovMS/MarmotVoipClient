@@ -1,5 +1,5 @@
 ﻿using MahApps.Metro.IconPacks;
-using MarmotVoipClient.Model;
+using MarmotVoipClient.Model.Data;
 using Prism.Commands;
 using System;
 using System.Collections.ObjectModel;

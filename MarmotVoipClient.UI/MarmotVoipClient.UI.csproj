@@ -86,6 +86,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Data\ContactDataService.cs" />
+    <Compile Include="Data\IContactDataService.cs" />
+    <Compile Include="Data\LookupDataService.cs" />
     <Compile Include="Startup\Bootstrapper.cs" />
     <Compile Include="ViewModel\ContactNavigationItemViewModel.cs" />
     <Compile Include="ViewModel\ContactNavigationViewModel.cs" />
@@ -159,9 +161,9 @@
     <Folder Include="Wrapper\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Logger\Logger.csproj">
+    <ProjectReference Include="..\Logger\LoggingAPI.csproj">
       <Project>{034DBB21-B9BD-42C7-ACC3-96C61325E447}</Project>
-      <Name>Logger</Name>
+      <Name>LoggingAPI</Name>
     </ProjectReference>
     <ProjectReference Include="..\MarmotVoipClient.DataAccess\MarmotVoipClient.DataAccess.csproj">
       <Project>{8E4B0AC6-FCF8-4BC4-B464-0464254F4D8D}</Project>

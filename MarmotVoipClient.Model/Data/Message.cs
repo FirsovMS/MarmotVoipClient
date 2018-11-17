@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MarmotVoipClient.Model
+namespace MarmotVoipClient.Model.Data
 {
 	public class Message
 	{

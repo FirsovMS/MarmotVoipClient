@@ -25,7 +25,7 @@ namespace MarmotVoipClient.UI.Data
 
 		public void Save(Contact contact)
 		{
-			ContactsDAO.Update(contact);
+			ContactsDAO.TryUpdate(contact);
 		}
 	}
 }

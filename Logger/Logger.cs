@@ -42,8 +42,8 @@ namespace LoggingAPI
 				Error = new ErrorDescription()
 				{
 					Description = description,
-					Message = exception.Message,
-					StackTrace = exception.StackTrace
+					Message = exception?.Message,
+					StackTrace = exception?.StackTrace
 				},
 				SqlQuery = sqlQuery,
 				Date = DateTime.Now,

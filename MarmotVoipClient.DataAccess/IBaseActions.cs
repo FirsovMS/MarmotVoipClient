@@ -8,10 +8,10 @@ namespace MarmotVoipClient.DataAccess
 
         IEnumerable<T> GetAll();
 
-        void Add(T value);
+        bool TryAdd(T value);
 
         bool TryRemove(T value);
 
-        void Update(T value);
+		bool TryUpdate(T value);
     }
 }

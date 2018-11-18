@@ -1,9 +1,9 @@
-﻿namespace MarmotVoipClient.Model.Data
-{
-	public class Contact
-	{
-		#region Props
+﻿using System;
 
+namespace MarmotVoipClient.Model.Data
+{
+	public class Contact : ICloneable
+	{
 		public int Id { get; private set; }
 
 		public string FirstName { get; set; }
@@ -12,22 +12,26 @@
 
 		public string Sip { get; set; }
 
-		public string Email { get; set; }
-
-		#endregion
-
-		public Contact(int id, string firstName, string lastName, string sip, string email)
+		public Contact(string firstName, string lastName, string sip)
 		{
-			Id = id;
 			FirstName = firstName;
 			LastName = lastName;
 			Sip = sip;
-			Email = email;
+		}
+
+		public Contact(int id, string firstName, string lastName, string sip) : this(firstName, lastName, sip)
+		{
+			Id = id;
 		}
 
 		public static Contact Default()
 		{
-			return new Contact(0, string.Empty, string.Empty, string.Empty, string.Empty);
+			return new Contact(0, string.Empty, string.Empty, string.Empty);
+		}
+
+		public object Clone()
+		{
+			return new Contact(this.Id, this.FirstName, this.LastName, this.Sip);
 		}
 	}
 }

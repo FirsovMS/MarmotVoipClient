@@ -20,17 +20,14 @@ namespace MarmotVoipClient.UI
 			try
 			{
 				var mainWindow = container.Resolve<MainWindow>();
-				MainWindow.Show();
 			}
 			catch (Exception ex)
 			{
-				MessageBox.Show("Application not created! See log file for more information", "Startup Error");
 				Logger.Error(description: "MainWindow not created!", exception: ex, logLevel: Level.Fatal);
-			}
-			finally
-			{
+				MessageBox.Show("Application not created! See log file for more information", "Startup Error");
 				Application.Current.Shutdown();
-			}			
+			}
+			MainWindow.Show();
 		}
 
 		private void Application_DispatcherUnhandledException(object sender,

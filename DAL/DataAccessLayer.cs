@@ -27,7 +27,8 @@ namespace DAL
 				// create command statement
 				command = Connection.CreateCommand();
 				command.CommandText = query;
-				result = command.ExecuteNonQuery() == 0;
+				command.ExecuteNonQuery();
+				result = true;
 			}
 			catch (SQLiteException ex)
 			{
@@ -36,7 +37,6 @@ namespace DAL
 			finally
 			{
 				command?.Dispose();
-				Connection?.Close();
 			}
 			return result;
 		}
@@ -60,17 +60,21 @@ namespace DAL
 					return result;
 				}
 			}
-			catch (SQLiteException ex)
+			catch (Exception ex)
 			{
 				Logger.Error("Can't execute query!", query, ex, Level.Error);
 			}
 			finally
 			{
 				command?.Dispose();
-				Connection?.Close();
 			}
 
 			return result;
+		}
+
+		~DataAccessLayer()
+		{
+			Connection?.Close();
 		}
 	}
 }

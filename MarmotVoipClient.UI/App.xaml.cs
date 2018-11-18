@@ -1,5 +1,6 @@
 ﻿using Autofac;
 using LoggingAPI;
+using MarmotVoipClient.DataAccess;
 using MarmotVoipClient.UI.Startup;
 using System;
 using System.Windows;
@@ -23,7 +24,7 @@ namespace MarmotVoipClient.UI
 			}
 			catch (Exception ex)
 			{
-				MessageBox.Show("MainWindow not created! See the Log information", "Startup Error");
+				MessageBox.Show("Application not created! See log file for more information", "Startup Error");
 				Logger.Error(description: "MainWindow not created!", exception: ex, logLevel: Level.Fatal);
 			}
 			finally

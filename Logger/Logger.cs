@@ -23,9 +23,10 @@ namespace LoggingAPI
 		{
 			var message = new ErrorMessage()
 			{
-				Description = new ErrorDescription()
+				Error = new ErrorDescription()
 				{
 					Description = description,
+					Message = exception.Message,
 					StackTrace = exception.StackTrace
 				},
 				Date = DateTime.Now,
@@ -38,9 +39,10 @@ namespace LoggingAPI
 		{
 			var message = new ErrorMessageWithSql()
 			{
-				Description = new ErrorDescription()
+				Error = new ErrorDescription()
 				{
 					Description = description,
+					Message = exception.Message,
 					StackTrace = exception.StackTrace
 				},
 				SqlQuery = sqlQuery,

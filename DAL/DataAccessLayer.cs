@@ -8,17 +8,14 @@ namespace DAL
 {
 	public class DataAccessLayer
 	{
-#if DEBUG
-		private static readonly string CONNECTION_STRING = @"Data Source=./data.db;Version=3;";
-#else
-		private static readonly string CONNECTION_STRING = "Data Source=c:\mydb.db;Version=3;";
-#endif
-
 		private SQLiteConnection Connection;
 
-		public DataAccessLayer()
+		public ConnectionState ConnectionStatus => Connection.State;
+
+		public DataAccessLayer(string connectionString)
 		{
-			Connection = new SQLiteConnection(CONNECTION_STRING);
+			Connection = new SQLiteConnection(connectionString);
+			Connection.Open();
 		}
 
 		public bool TryExecuteUpdate(string query)

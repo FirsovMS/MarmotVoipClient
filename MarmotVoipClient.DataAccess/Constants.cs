@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace MarmotVoipClient.DataAccess
 {
-    internal static class Constants
+    public static class Constants
     {
-        public static readonly string DA_TRANSACTION_BEGIN = "BEGIN TRANSACTION";
+		public static readonly string CONNECTION_STRING = @"Data Source=./data.db;Version=3;";
+
+		public static readonly string DA_TRANSACTION_BEGIN = "BEGIN TRANSACTION";
 
         public static readonly string DA_TRANSACTION_COMMIT = "COMMIT;";
 

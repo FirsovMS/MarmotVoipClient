@@ -9,12 +9,11 @@ namespace NUnitTestProject
 	[TestFixture]
 	public class TestContactsDAO
 	{
-		private Contact mockContact = new Contact(1, "Ivan", "Ivanovich", "sip@example");
+		private static readonly DataAccessLayer dal = new DataAccessLayer(Constants.ConnString);
 
 		[Test]
 		public void TestOpGetAllContacts()
 		{
-			DataAccessLayer dal = new DataAccessLayer(Constants.ConnString);
 			ContactsDAO contactsDAO = new ContactsDAO(dal);
 
 			ResetMockValueToDefaults(contactsDAO);
@@ -27,7 +26,6 @@ namespace NUnitTestProject
 		[Test]
 		public void TestOpGetMockContact()
 		{
-			DataAccessLayer dal = new DataAccessLayer(Constants.ConnString);
 			ContactsDAO contactsDAO = new ContactsDAO(dal);
 
 			ResetMockValueToDefaults(contactsDAO);
@@ -35,10 +33,10 @@ namespace NUnitTestProject
 			Contact result = null;
 			if (contactsDAO.TryGet(1, out result))
 			{
-				Assert.AreEqual(mockContact.FirstName, result.FirstName);
-				Assert.AreEqual(mockContact.LastName, result.LastName);
-				Assert.AreEqual(mockContact.Id, result.Id);
-				Assert.AreEqual(mockContact.Sip, result.Sip);
+				Assert.AreEqual(Constants.mockContact.FirstName, result.FirstName);
+				Assert.AreEqual(Constants.mockContact.LastName, result.LastName);
+				Assert.AreEqual(Constants.mockContact.Id, result.Id);
+				Assert.AreEqual(Constants.mockContact.Sip, result.Sip);
 			}
 			else
 			{
@@ -49,7 +47,6 @@ namespace NUnitTestProject
 		[Test]
 		public void TestOpAddAndVerifyMockContact()
 		{
-			DataAccessLayer dal = new DataAccessLayer(Constants.ConnString);
 			ContactsDAO contactsDAO = new ContactsDAO(dal);
 
 			ResetMockValueToDefaults(contactsDAO);
@@ -73,12 +70,12 @@ namespace NUnitTestProject
 		[Test]
 		public void TessOpUpdateMockContact()
 		{
-			DataAccessLayer dal = new DataAccessLayer(Constants.ConnString);
+
 			ContactsDAO contactsDAO = new ContactsDAO(dal);
 
 			ResetMockValueToDefaults(contactsDAO);
 
-			Contact mock = (Contact)mockContact.Clone();
+			Contact mock = (Contact)Constants.mockContact.Clone();
 			mock.FirstName = "MockingMock!";
 			contactsDAO.TryUpdate(mock);
 
@@ -96,19 +93,18 @@ namespace NUnitTestProject
 		[Test]
 		public void TestOpRemoveContact()
 		{
-			DataAccessLayer dal = new DataAccessLayer(Constants.ConnString);
 			ContactsDAO contactsDAO = new ContactsDAO(dal);
 
 			ResetMockValueToDefaults(contactsDAO);
 
 			// remove mock
-			if (!contactsDAO.TryRemove(mockContact))
+			if (!contactsDAO.TryRemove(Constants.mockContact))
 			{
 				Assert.Fail("Can't remove mock contact from database!");
 			}
 
 			Contact result = null;
-			if (contactsDAO.TryGet(mockContact.Id, out result))
+			if (contactsDAO.TryGet(Constants.mockContact.Id, out result))
 			{
 				Assert.Fail("Mock was not removed!");
 			}
@@ -117,26 +113,26 @@ namespace NUnitTestProject
 		private void ResetMockValueToDefaults(ContactsDAO contactsDAO)
 		{
 			Contact result = null;
-			if (!contactsDAO.TryGet(mockContact.Id, out result))
+			if (!contactsDAO.TryGet(Constants.mockContact.Id, out result))
 			{
-				if (!contactsDAO.TryAdd(mockContact))
+				if (!contactsDAO.TryAdd(Constants.mockContact))
 				{
 					Assert.Fail("Can't add default mock! See log result!");
 				}
 			}
 			else
 			{
-				if (!contactsDAO.TryUpdate(mockContact))
+				if (!contactsDAO.TryUpdate(Constants.mockContact))
 				{
 					Assert.Fail("Can't update default mock! See log result!");
 				}
 			}
 
-			if (!contactsDAO.TryGet(mockContact.Id, out result))
+			if (!contactsDAO.TryGet(Constants.mockContact.Id, out result))
 			{
 				Assert.Fail("Can't get updated value!");
 			}
-			Assert.AreEqual(mockContact.FirstName, result.FirstName);
+			Assert.AreEqual(Constants.mockContact.FirstName, result.FirstName);
 		}
 	}
 }

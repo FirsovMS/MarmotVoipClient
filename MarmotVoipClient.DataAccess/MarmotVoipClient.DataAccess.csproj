@@ -59,9 +59,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseDAO.cs" />
     <Compile Include="Constants.cs" />
-    <Compile Include="CallHistoryDAO.cs" />
+    <Compile Include="CallsDAO.cs" />
     <Compile Include="ContactsDAO.cs" />
+    <Compile Include="HistoryDAO.cs" />
     <Compile Include="IBaseActions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -77,10 +79,6 @@
     <ProjectReference Include="..\MarmotVoipClient.Model\MarmotVoipClient.Model.csproj">
       <Project>{69d5639b-b6da-442a-bf7a-d40c4823ebef}</Project>
       <Name>MarmotVoipClient.Model</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\QueryBuilder\QueryBuilder.csproj">
-      <Project>{8e30816c-5149-4388-91dc-b0e526125dc9}</Project>
-      <Name>QueryBuilder</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

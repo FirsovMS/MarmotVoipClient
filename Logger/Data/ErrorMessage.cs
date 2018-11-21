@@ -10,5 +10,7 @@ namespace LoggingAPI.Data
 		public Level LogLevel { get; set; }
 
 		public ErrorDescription Error { get; set; }
+
+		public string sql { get; set; }
 	}
 }

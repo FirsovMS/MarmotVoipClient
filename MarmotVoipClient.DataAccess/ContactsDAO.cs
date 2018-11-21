@@ -1,7 +1,6 @@
 ﻿using DAL;
 using LoggingAPI;
 using MarmotVoipClient.Model.Data;
-using QueryBuilder;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -9,15 +8,10 @@ using System.Linq;
 
 namespace MarmotVoipClient.DataAccess
 {
-	public class ContactsDAO : IBaseActions<Contact>
+	public class ContactsDAO : BaseDAO, IBaseActions<Contact>
 	{
-		private readonly DataAccessLayer dal;
-		private readonly QueryBuilderInstance queryBuilder;
-
-		public ContactsDAO(DataAccessLayer dal)
+		public ContactsDAO(DataAccessLayer dal) : base(dal)
 		{
-			this.dal = dal;
-			queryBuilder = new QueryBuilderInstance();
 		}
 
 		public bool TryAdd(Contact value)
@@ -26,7 +20,7 @@ namespace MarmotVoipClient.DataAccess
 				.AddParams(value.Id.ToString(), value.FirstName, value.LastName, value.Sip)
 				.Build();
 
-			return dal.TryExecuteUpdate(query);
+			return DAL.TryExecuteUpdate(query);
 		}
 
 		public bool TryGet(string sip, out Contact value)
@@ -40,7 +34,7 @@ namespace MarmotVoipClient.DataAccess
 
 			try
 			{
-				var result = dal.ExecuteQuery(query, row => ContactHandler(row))
+				var result = DAL.ExecuteQuery(query, row => ContactHandler(row))
 				.FirstOrDefault();
 
 				opResult = result != null;
@@ -51,7 +45,7 @@ namespace MarmotVoipClient.DataAccess
 			}
 			catch (Exception ex)
 			{
-				Logger.Error("Can't get contact by sip!", query, exception: ex, logLevel: Level.Error);
+				Logger.Error("Can't get contact by sip!", ex, Level.Error, query);
 			}
 			return opResult;
 		}
@@ -67,7 +61,7 @@ namespace MarmotVoipClient.DataAccess
 
 			try
 			{
-				var result = dal.ExecuteQuery(query, row => ContactHandler(row))
+				var result = DAL.ExecuteQuery(query, row => ContactHandler(row))
 				.FirstOrDefault();
 
 				opResult = result != null;
@@ -78,7 +72,7 @@ namespace MarmotVoipClient.DataAccess
 			}
 			catch (Exception ex)
 			{
-				Logger.Error("Can't get contact by id!", query, exception: ex, logLevel: Level.Error);
+				Logger.Error("Can't get contact by id!", ex, Level.Error, query);
 			}
 			return opResult;
 		}
@@ -89,11 +83,11 @@ namespace MarmotVoipClient.DataAccess
 
 			try
 			{
-				result = dal.ExecuteQuery(Constants.DA_CONTACTS_GET_ALL, row => ContactHandler(row));
+				result = DAL.ExecuteQuery(Constants.DA_CONTACTS_GET_ALL, row => ContactHandler(row));
 			}
 			catch (Exception ex)
 			{
-				Logger.Error("Can't get all contacts!", Constants.DA_CONTACTS_GET_ALL, exception: ex, logLevel: Level.Error);
+				Logger.Error("Can't get all contacts!", ex, Level.Error, Constants.DA_CONTACTS_GET_ALL);
 			}
 			return result;
 		}
@@ -103,10 +97,10 @@ namespace MarmotVoipClient.DataAccess
 			bool opResult = false;
 			var query = string.Format(Constants.DA_CONTACTS_DELETE_VALUE_BY_ID_FMT, value.Id);
 
-			opResult = dal.TryExecuteUpdate(query);
+			opResult = DAL.TryExecuteUpdate(query);
 			if (!opResult)
 			{
-				Logger.Error("Can't remove contact by id!", query, logLevel: Level.Error);
+				Logger.Error("Can't remove contact by id!", logLevel: Level.Error, sqlQuery: query);
 			}
 			return opResult;
 		}
@@ -117,7 +111,7 @@ namespace MarmotVoipClient.DataAccess
 				.AddParams(value.Id.ToString(), value.FirstName, value.LastName, value.Sip)
 				.Build();
 
-			return dal.TryExecuteUpdate(query);
+			return DAL.TryExecuteUpdate(query);
 		}
 
 		private bool TryGet<T>(string query, out Contact value)
@@ -127,7 +121,7 @@ namespace MarmotVoipClient.DataAccess
 
 			try
 			{
-				var result = dal.ExecuteQuery(query, row => ContactHandler(row))
+				var result = DAL.ExecuteQuery(query, row => ContactHandler(row))
 				.FirstOrDefault();
 
 				opResult = result != null;
@@ -138,7 +132,7 @@ namespace MarmotVoipClient.DataAccess
 			}
 			catch (Exception ex)
 			{
-				Logger.Error("Can't handle or get contact!", query, exception: ex, logLevel: Level.Error);
+				Logger.Error("Can't handle or get contact!", ex, Level.Error, query);
 			}
 			return opResult;
 		}

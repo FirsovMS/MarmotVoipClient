@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants.cs" />
+    <Compile Include="TestCallsDAO.cs" />
     <Compile Include="TestContactsDAO.cs" />
     <Compile Include="TestDataBaseAcces.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

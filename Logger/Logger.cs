@@ -16,10 +16,15 @@ namespace LoggingAPI
 
 		public static void Info(string description)
 		{
-			logger.Info(description);
+			var info = new Info()
+			{
+				Message = description,
+				Date = DateTime.Now
+			};
+			logger.Info(info.SerializeObject());
 		}
 
-		public static void Error(string description, Exception exception = null, Level logLevel = Level.Debug)
+		public static void Error(string description, Exception exception = null, Level logLevel = Level.Debug, string sqlQuery = null)
 		{
 			var message = new ErrorMessage()
 			{
@@ -29,23 +34,7 @@ namespace LoggingAPI
 					Message = exception.Message,
 					StackTrace = exception.StackTrace
 				},
-				Date = DateTime.Now,
-				LogLevel = logLevel
-			};
-			LogError(message);
-		}
-
-		public static void Error(string description, string sqlQuery, Exception exception = null, Level logLevel = Level.Debug)
-		{
-			var message = new ErrorMessageWithSql()
-			{
-				Error = new ErrorDescription()
-				{
-					Description = description,
-					Message = exception?.Message,
-					StackTrace = exception?.StackTrace
-				},
-				SqlQuery = sqlQuery,
+				sql = sqlQuery,
 				Date = DateTime.Now,
 				LogLevel = logLevel
 			};
@@ -61,9 +50,6 @@ namespace LoggingAPI
 					break;
 				case Level.Debug:
 					logger.Debug(message.SerializeObject());
-					break;
-				case Level.Info:
-					logger.Info(message.SerializeObject());
 					break;
 				case Level.Warn:
 					logger.Warn(message.SerializeObject());

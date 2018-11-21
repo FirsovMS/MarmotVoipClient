@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace QueryBuilder
+namespace DAL
 {
 	public class QueryBuilderInstance
 	{

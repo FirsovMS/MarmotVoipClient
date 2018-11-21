@@ -60,10 +60,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\CallHistoryItem.cs" />
+    <Compile Include="Data\CallItem.cs" />
     <Compile Include="Data\Contact.cs" />
+    <Compile Include="Data\HistoryItem.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="Data\Message.cs" />
     <Compile Include="ContactLookupItem.cs" />
+    <Compile Include="Extensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,11 +1,13 @@
 ﻿using DAL;
 using MarmotVoipClient.DataAccess;
+using MarmotVoipClient.Model.Data;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static MarmotVoipClient.Model.Enums;
 
 namespace NUnitTestProject
 {
@@ -33,35 +35,41 @@ namespace NUnitTestProject
 		}
 
 		[Test]
-		public void TestOpGetCallByTimeRange()
+		public void TestOpGetCallsByTimeRange()
 		{
 			var dao = new CallsDAO(dal);
 
-			Assert.Fail("Not implemented!");
-		}
+			var startTime = DateTime.Parse("2018-11-19 17:00:00");
+			var endTime = DateTime.Parse("2018-11-19 18:00:00");
 
-		[Test]
-		public void TestOpGetCallByCaller()
-		{
-			var dao = new CallsDAO(dal);
-
-			Assert.Fail("Not implemented!");
+			var calls = dao.GetAll(startTime, endTime);
+			Assert.IsTrue(calls.Any());
 		}
 
 		[Test]
 		public void TestOpGetCallByType()
 		{
 			var dao = new CallsDAO(dal);
+			var calls = dao.GetAll(CallType.Outcoming);
 
-			Assert.Fail("Not implemented!");
+			Assert.NotNull(calls.First());
 		}
 
 		[Test]
-		public void TestOpGetAllContacts()
+		public void TestOpGetCallById()
 		{
 			var dao = new CallsDAO(dal);
+			var mock = dao.GetAll().First();
 
-			Assert.Fail("Not implemented!");
+			CallItem result = null;
+			dao.TryGet(mock.Id, out result);
+
+			Assert.NotNull(result);
+			Assert.AreEqual(mock.Id, result.Id);
+			Assert.AreEqual(mock.SourceId, result.SourceId);
+			Assert.AreEqual(mock.DestinationId, result.DestinationId);
+			Assert.AreEqual(mock.TimeStart, result.TimeStart);
+			Assert.AreEqual(mock.TimeEnd, result.TimeEnd);
 		}
 	}
 }

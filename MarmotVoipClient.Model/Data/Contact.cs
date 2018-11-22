@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Addititonals;
+using System;
 
 namespace MarmotVoipClient.Model.Data
 {
@@ -32,6 +33,11 @@ namespace MarmotVoipClient.Model.Data
 		public object Clone()
 		{
 			return new Contact(this.Id, this.FirstName, this.LastName, this.Sip);
+		}
+
+		public override string ToString()
+		{
+			return this.SerializeObject();
 		}
 	}
 }

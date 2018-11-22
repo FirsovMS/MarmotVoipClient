@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using MarmotVoipClient.Model.Data;
 using System.Data;
+using Addititonals;
+using static MarmotVoipClient.Model.Enums;
 
 namespace MarmotVoipClient.DataAccess
 {
@@ -57,7 +59,7 @@ namespace MarmotVoipClient.DataAccess
 			}
 			catch (Exception ex)
 			{
-				Logger.Error("Can't get all CallHistoryItems!", ex, Level.Error, query);
+				Logger.Error($"Can't get all CallItems by {owner}!", ex, Level.Error, query);
 			}
 			return result;
 		}
@@ -67,8 +69,27 @@ namespace MarmotVoipClient.DataAccess
 			IEnumerable<CallItem> result = null;
 
 			var query = queryBuilder.Add(Constants.DA_CALLS_GET_BY_TIME_RANGE_FMT)
-				.AddParams(start.ToString(), end.ToString())
+				.AddParams(start.ToSQLiteTimeFormat(), end.ToSQLiteTimeFormat())
 				.Build();
+			try
+			{
+				result = DAL.ExecuteQuery(query, row => CallHandler(row));
+			}
+			catch (Exception ex)
+			{
+				Logger.Error("Can't get all CallHistoryItems!", ex, Level.Error, query);
+			}
+			return result;
+		}
+
+		public IEnumerable<CallItem> GetAll(CallType callType)
+		{
+			IEnumerable<CallItem> result = null;
+
+			var query = queryBuilder.Add(Constants.DA_CALLS_GET_BY_TYPE)
+				.AddParams(((int)callType).ToString())
+				.Build();
+
 			try
 			{
 				result = DAL.ExecuteQuery(query, row => CallHandler(row));
@@ -117,20 +138,20 @@ namespace MarmotVoipClient.DataAccess
 		public bool TryUpdate(CallItem value)
 		{
 			var query = queryBuilder.Add(Constants.DA_CALL_UPDATE_RECORD_BY_ID_FMT)
-				.AddParams(value.Id.ToString(), value.FromId.ToString(), value.ToId.ToString(), ((int)value.CallType).ToString(),
+				.AddParams(value.Id.ToString(), value.SourceId.ToString(), value.DestinationId.ToString(), ((int)value.CallType).ToString(),
 					value.TimeStart.ToString(), value.TimeEnd.ToString())
 				.Build();
 
 			return DAL.TryExecuteUpdate(query);
 		}
 
-		private static CallItem CallHandler(DataRow row)
+		private static CallItem CallHandler(IDataReader row)
 		{
 			return new CallItem()
 			{
 				Id = Convert.ToInt32(row["call_id"]),
-				FromId = Convert.ToInt32(row["from_id"]),
-				ToId = Convert.ToInt32(row["to_id"]),
+				SourceId = Convert.ToInt32(row["from_id"]),
+				DestinationId = Convert.ToInt32(row["to_id"]),
 				CallType = (Enums.CallType)Convert.ToInt32(row["call_type"]),
 				TimeStart = DateTime.Parse(row["time_start"].ToString()),
 				TimeEnd = DateTime.Parse(row["time_end"].ToString())

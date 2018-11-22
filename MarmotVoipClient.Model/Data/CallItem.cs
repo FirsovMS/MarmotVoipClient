@@ -7,9 +7,9 @@ namespace MarmotVoipClient.Model.Data
 	{
 		public int Id { get; set; }
 
-		public int FromId { get; set; }
+		public int SourceId { get; set; }
 
-		public int ToId { get; set; }
+		public int DestinationId { get; set; }
 
 		public CallType CallType { get; set; }
 

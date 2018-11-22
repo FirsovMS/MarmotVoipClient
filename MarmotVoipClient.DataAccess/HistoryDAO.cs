@@ -51,7 +51,7 @@ namespace MarmotVoipClient.DataAccess
 			throw new NotImplementedException();
 		}
 
-		private static HistoryItem HandleHistoryItem(DataRow dataRow)
+		private static HistoryItem HandleHistoryItem(IDataReader dataRow)
 		{
 			return new HistoryItem()
 			{

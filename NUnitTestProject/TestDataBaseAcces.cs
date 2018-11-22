@@ -2,6 +2,7 @@
 using NUnit.Framework;
 using System.Data;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace NUnitTestProject
 {
@@ -22,6 +23,16 @@ namespace NUnitTestProject
 			DataAccessLayer dal = new DataAccessLayer(Constants.ConnString);
 
 			var version = dal.ExecuteQuery("select sqlite_version();", row => (string)row[0]).FirstOrDefault();
+
+			Assert.IsFalse(string.IsNullOrWhiteSpace(version));
+		}
+
+		[Test]
+		public async Task TestExecuteSelectVersionAsync()
+		{
+			DataAccessLayer dal = new DataAccessLayer(Constants.ConnString);
+
+			var version = (await dal.ExecuteQueryAsync("select sqlite_version();", row => (string)row[0])).FirstOrDefault();
 
 			Assert.IsFalse(string.IsNullOrWhiteSpace(version));
 		}

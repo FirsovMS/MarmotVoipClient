@@ -1,4 +1,6 @@
-﻿namespace MarmotVoipClient.Model
+﻿using System;
+
+namespace MarmotVoipClient.Model
 {
 	public static class Enums
 	{

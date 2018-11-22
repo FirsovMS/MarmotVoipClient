@@ -22,116 +22,81 @@ namespace DAL
 		public bool TryExecuteUpdate(string query)
 		{
 			bool result = false;
-			SQLiteCommand command = null;
 			try
 			{
-				// create command statement
-				command = Connection.CreateCommand();
-				command.CommandText = query;
-				command.ExecuteNonQuery();
-				result = true;
-			}
-			catch (SQLiteException ex)
-			{
-				Logger.Error("Can't execute TryExecuteUpdate!", ex, Level.Error, query);
-			}
-			finally
-			{
-				command?.Dispose();
-			}
-			return result;
-		}
-
-		public IEnumerable<T> ExecuteQuery<T>(string query, Func<DataRow, T> handleFactory)
-		{
-			var result = new List<T>();
-			SQLiteCommand command = null;
-
-			try
-			{
-				var dt = new DataTable();
-				command = Connection.CreateCommand();
-				command.CommandText = query;
-
-				dt.Load(command.ExecuteReader());
-
-				if (dt.Rows.Count > 0)
+				using (var command = Connection.CreateCommand())
 				{
-					result.AddRange(dt.AsEnumerable().Select(row => handleFactory(row)));
-					return result;
+					command.CommandText = query;
+					command.ExecuteNonQuery();
+					result = true;
 				}
 			}
 			catch (Exception ex)
 			{
-				Logger.Error($"Can't execute ExecuteQuery<{typeof(T)}>()!", ex, Level.Error, query);
-			}
-			finally
-			{
-				command?.Dispose();
+				Logger.Error("Can't execute TryExecuteUpdateAsync!", ex, Level.Error, query);
 			}
 
+			return result;
+		}
+
+		public IEnumerable<T> ExecuteQuery<T>(string query, Func<IDataReader, T> handleFactory)
+		{
+			var result = new List<T>();
+			using (var command = Connection.CreateCommand())
+			{
+				command.CommandText = query;
+				using (var reader = command.ExecuteReader())
+				{
+					if (reader.HasRows)
+					{
+						while (reader.Read())
+						{
+							result.Add(handleFactory(reader));
+						}
+					}
+				}
+			}
 			return result;
 		}
 
 		public async Task<bool> TryExecuteUpdateAsync(string query)
 		{
 			bool result = false;
-			SQLiteCommand command = null;
 			try
 			{
-				// create command statement
-				command = Connection.CreateCommand();
-				command.CommandText = query;
-				await command.ExecuteNonQueryAsync();
-				result = true;
-			}
-			catch (SQLiteException ex)
-			{
-				Logger.Error("Can't execute TryExecuteUpdateAsync!", ex, Level.Error, query);
-			}
-			finally
-			{
-				command?.Dispose();
-			}
-			return result;
-		}
-
-		public async Task<IEnumerable<T>> ExecuteQuery<T>(string query, Func<DataRow, T> handleFactory)
-		{
-			var result = new List<T>();
-			SQLiteCommand command = null;
-
-			try
-			{
-				command = Connection.CreateCommand();
-				command.CommandText = query;
-
-				using (var reader = await command.ExecuteReaderAsync())
+				using (var command = Connection.CreateCommand())
 				{
-					if (reader.HasRows)
-					{
-						var dt = new DataTable();
-						dt.Load(reader);
-						result.AddRange(dt.AsEnumerable().Select(row => handleFactory(row)));
-						return result;
-					}
+					command.CommandText = query;
+					await command.ExecuteNonQueryAsync();
+					result = true;
 				}
 			}
 			catch (Exception ex)
 			{
-				Logger.Error($"Can't execute ExecuteQuery<{typeof(T)}>!", ex, Level.Error, query);
-			}
-			finally
-			{
-				command?.Dispose();
+				Logger.Error("Can't execute TryExecuteUpdateAsync!", ex, Level.Error, query);
 			}
 
 			return result;
 		}
 
-		~DataAccessLayer()
+		public async Task<IEnumerable<T>> ExecuteQueryAsync<T>(string query, Func<IDataReader, T> handleFactory)
 		{
-			Connection?.Close();
+			var result = new List<T>();
+			using (var command = Connection.CreateCommand())
+			{
+				command.CommandText = query;
+				using (var reader = await command.ExecuteReaderAsync())
+				{
+					if (reader.HasRows)
+					{
+						while (await reader.ReadAsync())
+						{
+							result.Add(handleFactory(reader));
+						}
+					}
+				}
+			}
+			return result;
 		}
 	}
 }

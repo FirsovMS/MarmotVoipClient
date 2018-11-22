@@ -69,5 +69,11 @@
     <Compile Include="Extensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Addititonals\Addititonals.csproj">
+      <Project>{D019D632-E765-4168-A033-AFC4E0FB69D8}</Project>
+      <Name>Addititonals</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

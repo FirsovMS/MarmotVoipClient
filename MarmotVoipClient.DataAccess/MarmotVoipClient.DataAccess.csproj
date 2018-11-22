@@ -68,6 +68,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Addititonals\Addititonals.csproj">
+      <Project>{D019D632-E765-4168-A033-AFC4E0FB69D8}</Project>
+      <Name>Addititonals</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DAL\DAL.csproj">
       <Project>{377298e5-6525-4e1a-bd6b-4c3663aabc6d}</Project>
       <Name>DAL</Name>

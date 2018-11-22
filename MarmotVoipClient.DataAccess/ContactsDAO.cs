@@ -137,7 +137,7 @@ namespace MarmotVoipClient.DataAccess
 			return opResult;
 		}
 
-		private static Contact ContactHandler(DataRow row)
+		private static Contact ContactHandler(IDataReader row)
 		{
 			return new Contact(
 				Convert.ToInt32(row["contact_id"]),

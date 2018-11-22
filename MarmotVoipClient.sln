@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Addititonals", "Addititonal
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NUnitTestProject", "NUnitTestProject\NUnitTestProject.csproj", "{F55F0483-E7FE-4F8E-9548-35AE4DA83F28}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BenchmarkApp", "BenchmarkApp\BenchmarkApp.csproj", "{5C969DEC-3920-41DE-9B37-B8124BC888FB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +55,10 @@ Global
 		{F55F0483-E7FE-4F8E-9548-35AE4DA83F28}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F55F0483-E7FE-4F8E-9548-35AE4DA83F28}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F55F0483-E7FE-4F8E-9548-35AE4DA83F28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C969DEC-3920-41DE-9B37-B8124BC888FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C969DEC-3920-41DE-9B37-B8124BC888FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C969DEC-3920-41DE-9B37-B8124BC888FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C969DEC-3920-41DE-9B37-B8124BC888FB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

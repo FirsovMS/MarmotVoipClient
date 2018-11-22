@@ -52,7 +52,7 @@ namespace MarmotVoipClient.DataAccess
 
 		public static readonly string DA_CALLS_GET_BY_TYPE = "SELECT * FROM Calls WHERE call_type = {0}";
 
-		public static readonly string DA_CALLS_GET_BY_TIME_RANGE_FMT = "SELECT * FROM Calls WHERE call_type BETWEEN {0} AND {1}";
+		public static readonly string DA_CALLS_GET_BY_TIME_RANGE_FMT = "SELECT * FROM Calls WHERE time_start BETWEEN '{0}' AND '{1}'";
 
 		public static readonly string DA_CALL_INSERT_RECORD_FMT =
 			"INSERT INTO Calls(call_id, from_id, to_id, call_type, time_start, time_end) VALES({0}, {1}, {2}, {3}, '{4}', '{5}')";

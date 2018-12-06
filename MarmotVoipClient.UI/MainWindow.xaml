@@ -6,14 +6,15 @@
         xmlns:local="clr-namespace:MarmotVoipClient.UI"
         xmlns:view="clr-namespace:MarmotVoipClient.UI.View"
         xmlns:viewModel="clr-namespace:MarmotVoipClient.UI.ViewModel"
-        mc:Ignorable="d"
-        Title="Marmot Voip Client" Height="400" Width="500" FontSize="18">
+		xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        Title="Marmot Voip Client" MinHeight="400" Width="500" FontSize="18">
 	<Grid>
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="Auto"/>
 			<ColumnDefinition Width="*"/>
 		</Grid.ColumnDefinitions>
-		<view:ContactNavigationView Width="240" DataContext="{Binding ContactNavigation}"/>
+		<view:ContactNavigationView MinWidth="240" DataContext="{Binding ContactNavigation}"/>
 		<view:MessageDialogView Grid.Column="1" DataContext="{Binding MessageDialogs}" Visibility="Visible"/>
 	</Grid>
 </Window>

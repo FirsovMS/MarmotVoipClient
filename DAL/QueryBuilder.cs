@@ -34,11 +34,15 @@ namespace DAL
 		/// <returns></returns>
 		public string Build()
 		{
-			if (builder[builder.Length - 1] != ';')
+			var result = string.Empty;
+			if (builder.Length > 0)
 			{
-				builder.Append(";");
+				if (builder[builder.Length - 1] != ';')
+				{
+					builder.Append(";");
+				}
+				result = builder.ToString();
 			}
-			var result = builder.ToString();
 			builder.Clear();
 			return result;
 		}

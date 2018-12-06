@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace MarmotVoipClient.UI.ViewModel
 {
-	public class ContactNavigationItemViewModel : ViewModelBase
+	public class UserItemViewModel : ViewModelBase
 	{
 		private string displayMember;
 
@@ -28,7 +28,7 @@ namespace MarmotVoipClient.UI.ViewModel
 			}
 		}
 
-		public ContactNavigationItemViewModel(int id, string displayMember)
+		public UserItemViewModel(int id, string displayMember)
 		{
 			Id = id;
 			DisplayMember = displayMember;

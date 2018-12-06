@@ -4,7 +4,7 @@ using MarmotVoipClient.Model.Data;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace MarmotVoipClient.UI.Data
+namespace MarmotVoipClient.UI.Data.Lookups
 {
 	public class ContactLookupDataService : IContactLookupDataService
 	{

@@ -2,6 +2,7 @@
 using DAL;
 using MarmotVoipClient.DataAccess;
 using MarmotVoipClient.UI.Data;
+using MarmotVoipClient.UI.Data.Lookups;
 using MarmotVoipClient.UI.ViewModel;
 using Prism.Events;
 

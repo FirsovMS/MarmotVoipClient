@@ -1,6 +1,6 @@
 ﻿using MahApps.Metro.IconPacks;
-using MarmotVoipClient.Model.Data;
 using MarmotVoipClient.UI.Events;
+using MarmotVoipClient.UI.Wrapper;
 using Prism.Commands;
 using Prism.Events;
 using System;
@@ -12,12 +12,12 @@ namespace MarmotVoipClient.UI.ViewModel
 	public class MessageDialogViewModel : ViewModelBase, IMessageDialogViewModel
 	{
 		private IEventAggregator eventAggregator;
-		private ObservableCollection<Message> messages;
-		private Message selectedMessage;
+		private ObservableCollection<MessageWrapper> messages;
+		private MessageWrapper selectedMessage;
 		private PackIconMaterial iconSend;
 		private string messageText;
 
-		public ObservableCollection<Message> Messages
+		public ObservableCollection<MessageWrapper> Messages
 		{
 			get { return messages; }
 			set
@@ -27,7 +27,7 @@ namespace MarmotVoipClient.UI.ViewModel
 			}
 		}
 
-		public Message SelectedMessage
+		public MessageWrapper SelectedMessage
 		{
 			get { return selectedMessage; }
 			set
@@ -74,6 +74,7 @@ namespace MarmotVoipClient.UI.ViewModel
 		{
 			this.eventAggregator = eventAggregator;
 
+			Messages = new ObservableCollection<MessageWrapper>();
 			IconSend = new PackIconMaterial()
 			{
 				Kind = PackIconMaterialKind.Microphone
@@ -94,6 +95,17 @@ namespace MarmotVoipClient.UI.ViewModel
 		public void Load(int contactId)
 		{
 			throw new NotImplementedException();
+
+			//var friend = await friendDataService.GetByIdAsync(friendId);
+			//Friend = new FriendWrapper(friend);
+			//Friend.PropertyChanged += (s, e) =>
+			//{
+			//	if (e.PropertyName == nameof(Friend.HasErrors))
+			//	{
+			//		((DelegateCommand)SaveCommand).RaiseCanExecuteChanged();
+			//	}
+			//};
+			//((DelegateCommand)SaveCommand).RaiseCanExecuteChanged();
 		}
 
 		private void OnUserInfoCommandExecute()
@@ -109,24 +121,19 @@ namespace MarmotVoipClient.UI.ViewModel
 		// TODO: Load contact messages
 		private void AfterOpenMessageDialog(int contactId)
 		{
-			throw new NotImplementedException();
+			
 		}
 
 		private void UpdateSendIcon()
 		{
-			if (!string.IsNullOrWhiteSpace(messageText))
+			switch (IconSend.Kind)
 			{
-				IconSend = new PackIconMaterial()
-				{
-					Kind = PackIconMaterialKind.Send
-				};
-			}
-			else
-			{
-				IconSend = new PackIconMaterial()
-				{
-					Kind = PackIconMaterialKind.Microphone
-				};
+				case PackIconMaterialKind.Send:
+					IconSend.Kind = PackIconMaterialKind.Microphone;
+					break;
+				case PackIconMaterialKind.Microphone:
+					IconSend.Kind = PackIconMaterialKind.Send;
+					break;
 			}
 		}
 

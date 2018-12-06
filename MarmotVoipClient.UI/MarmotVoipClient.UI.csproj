@@ -69,6 +69,9 @@
     <Reference Include="ControlzEx, Version=3.0.2.4, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ControlzEx.3.0.2.4\lib\net45\ControlzEx.dll</HintPath>
     </Reference>
+    <Reference Include="MahApps.Metro, Version=1.6.5.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.1.6.5\lib\net45\MahApps.Metro.dll</HintPath>
+    </Reference>
     <Reference Include="MahApps.Metro.IconPacks, Version=2.3.0.4, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MahApps.Metro.IconPacks.2.3.0\lib\net45\MahApps.Metro.IconPacks.dll</HintPath>
     </Reference>
@@ -107,8 +110,8 @@
     </ApplicationDefinition>
     <Compile Include="Data\ContactDataService.cs" />
     <Compile Include="Data\IContactDataService.cs" />
-    <Compile Include="Data\IContactLookupDataService.cs" />
-    <Compile Include="Data\ContactLookupDataService.cs" />
+    <Compile Include="Data\Lookups\IContactLookupDataService.cs" />
+    <Compile Include="Data\Lookups\ContactLookupDataService.cs" />
     <Compile Include="Events\OpenMessageDialogViewEvent.cs" />
     <Compile Include="Startup\Bootstrapper.cs" />
     <Compile Include="ViewModel\ContactNavigationItemViewModel.cs" />
@@ -128,6 +131,9 @@
     <Compile Include="View\MessageDialogView.xaml.cs">
       <DependentUpon>MessageDialogView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Wrapper\MessageWrapper.cs" />
+    <Compile Include="Wrapper\ModelWrapper.cs" />
+    <Compile Include="Wrapper\NotifyDataErrorInfoBase.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -181,7 +187,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Wrapper\" />
+    <Folder Include="Data\Repositories\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">

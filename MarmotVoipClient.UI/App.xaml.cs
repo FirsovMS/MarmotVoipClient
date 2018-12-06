@@ -1,9 +1,9 @@
 ﻿using Autofac;
 using LoggingAPI;
-using MarmotVoipClient.DataAccess;
 using MarmotVoipClient.UI.Startup;
 using System;
 using System.Windows;
+using System.Windows.Threading;
 
 namespace MarmotVoipClient.UI
 {
@@ -20,18 +20,17 @@ namespace MarmotVoipClient.UI
 			try
 			{
 				var mainWindow = container.Resolve<MainWindow>();
+				mainWindow.Show();
 			}
 			catch (Exception ex)
 			{
 				Logger.Error(description: "MainWindow not created!", exception: ex, logLevel: Level.Fatal);
 				MessageBox.Show("Application not created! See log file for more information", "Startup Error");
-				Application.Current.Shutdown();
+				Current.Shutdown();
 			}
-			MainWindow.Show();
 		}
 
-		private void Application_DispatcherUnhandledException(object sender,
-			System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
+		private void Application_DispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
 		{
 			Logger.Error(description: "Unexpected Error occured", exception: e.Exception, logLevel: Level.Fatal);
 

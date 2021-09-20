@@ -1,0 +1,90 @@
+﻿<UserControl x:Class="MarmotVoipClient.UI.View.DialingPanelView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MarmotVoipClient.UI.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="150" d:DesignWidth="200">
+    <UserControl.Resources>
+        <BitmapImage x:Key="presence" UriSource="pack://application:,,,/Resources/Images/presence.png"/>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <!--Inforamtion about caller-->
+        <StackPanel Grid.Row="0"
+                    Grid.ColumnSpan="3">
+            <DockPanel Margin="4">
+                <Ellipse DockPanel.Dock="Left"
+                                     Width="50"
+                                     Height="50">
+                    <Ellipse.Fill>
+                        <ImageBrush ImageSource="{StaticResource presence}"/>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <StackPanel Margin="4,0,2,0">
+                    <DockPanel>
+                        <TextBlock Name="lblStatusRecord" 
+                                           Text="Call established"
+                                           DockPanel.Dock="Left"
+                                           FontSize="14"/>
+                        <TextBlock Name="lblTimer" 
+                                           Text="00:00:00" 
+                                           Margin="0,0,5,0"
+                                           FontSize="14"
+                                           DockPanel.Dock="Right"
+                                           VerticalAlignment="Center"
+                                           HorizontalAlignment="Right"/>
+                    </DockPanel>
+                    <Separator/>
+                    <TextBlock x:Name="txtCallerPhoneNumber"
+                                       FontSize="22"
+                                       Text="PHONE"/>
+                    <Separator/>
+                    <TextBlock x:Name="txtCallerName"
+                                       Text="Name"
+                                       FontSize="16"/>
+                </StackPanel>
+            </DockPanel>
+            <Separator/>
+            <TextBlock x:Name="txtCallerAddress"
+                                       Margin="5, 0"
+                                       Text="Address"
+                                       FontSize="16"
+                                       TextWrapping="Wrap"/>
+        </StackPanel>
+        <!--Phone Controls-->
+        <Button x:Name="btnAcceptCall" 
+                Grid.Column="0"
+                Grid.Row="1"
+                Margin="2,0"
+                Content="Принять"
+                MinWidth="50"
+                Padding="5"
+                MinHeight="30"></Button>
+        <Button x:Name="btnPauseCall" 
+                Grid.Column="1"
+                Grid.Row="1"
+                Margin="2,0"
+                Padding="5"
+                Content="Удерживать" 
+                MinWidth="50"
+                MinHeight="30"></Button>
+        <Button x:Name="btnRejectCall"
+                Grid.Column="2"
+                Grid.Row="1"
+                Margin="2,0"
+                Content="Отклонить" 
+                MinWidth="50"
+                MinHeight="30" 
+                Padding="5"></Button>
+    </Grid>
+</UserControl>

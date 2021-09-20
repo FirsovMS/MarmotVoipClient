@@ -1,18 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27703.2000
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31624.102
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarmotVoipClient.UI", "MarmotVoipClient.UI\MarmotVoipClient.UI.csproj", "{843C2A60-F749-4532-AE8E-E098306DACE8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarmotVoipClient.UI", "MarmotVoipClient.UI\MarmotVoipClient.UI.csproj", "{00330E6A-9942-4248-BB32-998BE7B87E91}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarmotVoipClient.Model", "MarmotVoipClient.Model\MarmotVoipClient.Model.csproj", "{69D5639B-B6DA-442A-BF7A-D40C4823EBEF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarmotVoipClient.Model", "MarmotVoipClient.Model\MarmotVoipClient.Model.csproj", "{A88928B1-33CE-4EB9-88D6-AA9CCD0071FD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarmotVoipClient.DataAccess", "MarmotVoipClient.DataAccess\MarmotVoipClient.DataAccess.csproj", "{1A0AD842-E165-4DA1-B342-D146DF45FEC9}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{70716411-67A0-4ADE-9682-ADB2682023F5}"
-	ProjectSection(SolutionItems) = preProject
-		data.db = data.db
-	EndProjectSection
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarmotVoipClient.DataAccess", "MarmotVoipClient.DataAccess\MarmotVoipClient.DataAccess.csproj", "{F5D4E63C-636F-429C-A130-C846054AF5EF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,23 +15,23 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{843C2A60-F749-4532-AE8E-E098306DACE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{843C2A60-F749-4532-AE8E-E098306DACE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{843C2A60-F749-4532-AE8E-E098306DACE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{843C2A60-F749-4532-AE8E-E098306DACE8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{69D5639B-B6DA-442A-BF7A-D40C4823EBEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{69D5639B-B6DA-442A-BF7A-D40C4823EBEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{69D5639B-B6DA-442A-BF7A-D40C4823EBEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{69D5639B-B6DA-442A-BF7A-D40C4823EBEF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1A0AD842-E165-4DA1-B342-D146DF45FEC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1A0AD842-E165-4DA1-B342-D146DF45FEC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1A0AD842-E165-4DA1-B342-D146DF45FEC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1A0AD842-E165-4DA1-B342-D146DF45FEC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00330E6A-9942-4248-BB32-998BE7B87E91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00330E6A-9942-4248-BB32-998BE7B87E91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00330E6A-9942-4248-BB32-998BE7B87E91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00330E6A-9942-4248-BB32-998BE7B87E91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A88928B1-33CE-4EB9-88D6-AA9CCD0071FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A88928B1-33CE-4EB9-88D6-AA9CCD0071FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A88928B1-33CE-4EB9-88D6-AA9CCD0071FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A88928B1-33CE-4EB9-88D6-AA9CCD0071FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5D4E63C-636F-429C-A130-C846054AF5EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5D4E63C-636F-429C-A130-C846054AF5EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5D4E63C-636F-429C-A130-C846054AF5EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5D4E63C-636F-429C-A130-C846054AF5EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {CE53B81A-A2AC-4FC6-8893-EE88E041713C}
+		SolutionGuid = {81FAA165-FFAE-4546-AE4D-0D113CEA1B48}
 	EndGlobalSection
 EndGlobal

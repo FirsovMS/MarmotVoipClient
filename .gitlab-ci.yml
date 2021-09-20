@@ -1,10 +1,7 @@
-image: mcr.microsoft.com/dotnet/sdk:5.0
-
 stages:          # List of stages for jobs, and their order of execution
   - build
   
 build-job:       # This job runs in the build stage, which runs first.
   stage: build
   script:
-    - dotnet restore --verbosity normal
-    - dotnet build
+    - echo 'build finished'

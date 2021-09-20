@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MarmotVoipClient.UI
+namespace MarmotVoipClient.UI.View
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for PhoneControlView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class PhoneControlView : UserControl
     {
-        public MainWindow()
+        public PhoneControlView()
         {
             InitializeComponent();
         }

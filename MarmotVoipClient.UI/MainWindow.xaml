@@ -4,9 +4,24 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MarmotVoipClient.UI"
+        xmlns:view="clr-namespace:MarmotVoipClient.UI.View"
+        xmlns:viewModel="clr-namespace:MarmotVoipClient.UI.ViewModel"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Marmot Voip Client" Height="499" Width="316" FontSize="18">
     <Grid>
-
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <view:PhoneControlView Grid.Row="1"
+                               DataContext="{Binding PhoneControlViewModel}"/>
+        <view:DialingPanelView Grid.Row="2"
+                               DataContext="{Binding DialingPanelViewModel}"/>
+        <view:PhoneButtonsView Grid.Row="3"
+                               DataContext="{Binding PhoneButtonsViewModel}"/>
+        <view:FooterControlsView Grid.Row="4"
+                                 DataContext="{Binding FooterControlsViewModel}"/>
     </Grid>
 </Window>

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27703.2000
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31624.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarmotVoipClient.UI", "MarmotVoipClient.UI\MarmotVoipClient.UI.csproj", "{843C2A60-F749-4532-AE8E-E098306DACE8}"
 EndProject
@@ -16,10 +16,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoggingAPI", "Logger\LoggingAPI.csproj", "{034DBB21-B9BD-42C7-ACC3-96C61325E447}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Addititonals", "Addititonals\Addititonals.csproj", "{D019D632-E765-4168-A033-AFC4E0FB69D8}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NUnitTestProject", "NUnitTestProject\NUnitTestProject.csproj", "{F55F0483-E7FE-4F8E-9548-35AE4DA83F28}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BenchmarkApp", "BenchmarkApp\BenchmarkApp.csproj", "{5C969DEC-3920-41DE-9B37-B8124BC888FB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,14 +47,6 @@ Global
 		{D019D632-E765-4168-A033-AFC4E0FB69D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D019D632-E765-4168-A033-AFC4E0FB69D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D019D632-E765-4168-A033-AFC4E0FB69D8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F55F0483-E7FE-4F8E-9548-35AE4DA83F28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F55F0483-E7FE-4F8E-9548-35AE4DA83F28}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F55F0483-E7FE-4F8E-9548-35AE4DA83F28}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F55F0483-E7FE-4F8E-9548-35AE4DA83F28}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5C969DEC-3920-41DE-9B37-B8124BC888FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5C969DEC-3920-41DE-9B37-B8124BC888FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5C969DEC-3920-41DE-9B37-B8124BC888FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5C969DEC-3920-41DE-9B37-B8124BC888FB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

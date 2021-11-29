@@ -6,22 +6,22 @@ using System.Threading.Tasks;
 
 namespace MarmotVoipClient.UI.ViewModel
 {
-	public class MainViewModel : ViewModelBase
-	{
-		public IContactNavigationViewModel ContactNavigation { get; }
+    public class MainViewModel : ViewModelBase
+    {
+        public IContactNavigationViewModel ContactNavigation { get; }
 
-		public IMessageDialogViewModel MessageDialogs { get; }
+        public IMessageDialogViewModel MessageDialogs { get; }
 
-		public MainViewModel(IContactNavigationViewModel contactNavigation,
-			IMessageDialogViewModel messageDialog)
-		{
-			ContactNavigation = contactNavigation;
-			MessageDialogs = messageDialog;
-		}
+        public MainViewModel(IContactNavigationViewModel contactNavigation,
+          IMessageDialogViewModel messageDialog)
+        {
+            ContactNavigation = contactNavigation;
+            MessageDialogs = messageDialog;
+        }
 
-		public void Load()
-		{
-			ContactNavigation.Load();
-		}
-	}
+        public void Load()
+        {
+            ContactNavigation.Load();
+        }
+    }
 }

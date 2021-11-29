@@ -15,14 +15,14 @@ using System.Windows.Shapes;
 
 namespace MarmotVoipClient.UI.View.CustomControls
 {
-	/// <summary>
-	/// Interaction logic for UserItemView.xaml
-	/// </summary>
-	public partial class UserItemView : UserControl
-	{
-		public UserItemView()
-		{
-			InitializeComponent();
-		}
-	}
+    /// <summary>
+    /// Interaction logic for UserItemView.xaml
+    /// </summary>
+    public partial class UserItemView : UserControl
+    {
+        public UserItemView()
+        {
+            InitializeComponent();
+        }
+    }
 }

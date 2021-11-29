@@ -1,28 +1,40 @@
 ﻿using MarmotVoipClient.DataAccess;
 using MarmotVoipClient.Model;
 using MarmotVoipClient.Model.Data;
+using MarmotVoipClient.UI.Startup;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace MarmotVoipClient.UI.Data.Lookups
 {
-	public class ContactLookupDataService : IContactLookupDataService
-	{
-		private readonly ContactsDAO ContactsDAO;
+    public class ContactLookupDataService : IContactLookupDataService
+    {
+        public IEnumerable<ContactLookupItem> GetLookups()
+        {
+            if (Configuration.IsDebugMode)
+            {
+                return MockLookups();
+            }
 
-		public ContactLookupDataService(ContactsDAO contactsDAO)
-		{
-			ContactsDAO = contactsDAO;
-		}
+            throw new NotImplementedException();
+        }
 
-		public IEnumerable<ContactLookupItem> GetLookups()
-		{
-			IEnumerable<Contact> contacts = ContactsDAO.GetAll();
-			return contacts.Select(contact => new ContactLookupItem()
-			{
-				Id = contact.Id,
-				DisplayMember = $"{contact.FirstName} {contact.LastName}"
-			});
-		}
-	}
+        private IEnumerable<ContactLookupItem> MockLookups()
+        {
+            return new List<ContactLookupItem>()
+            {
+                new ContactLookupItem
+                {
+                    Id = 0,
+                    DisplayMember = "Test0"
+                },
+                new ContactLookupItem
+                {
+                    Id = 1,
+                    DisplayMember = "Test1"
+                },
+            };
+        }
+    }
 }

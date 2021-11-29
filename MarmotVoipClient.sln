@@ -9,13 +9,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarmotVoipClient.Model", "M
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Helpers", "Helpers", "{EB14094D-0331-4B8B-98FA-A77F6837EA18}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{377298E5-6525-4E1A-BD6B-4C3663AABC6D}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarmotVoipClient.DataAccess", "MarmotVoipClient.DataAccess\MarmotVoipClient.DataAccess.csproj", "{8E4B0AC6-FCF8-4BC4-B464-0464254F4D8D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoggingAPI", "Logger\LoggingAPI.csproj", "{034DBB21-B9BD-42C7-ACC3-96C61325E447}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Addititonals", "Addititonals\Addititonals.csproj", "{D019D632-E765-4168-A033-AFC4E0FB69D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarmotVoipClient.DataAccessTests", "MarmotVoipClient.DataAccessTests\MarmotVoipClient.DataAccessTests.csproj", "{7FDC8F1B-9932-4284-B125-D28E7DC78414}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,10 +31,6 @@ Global
 		{69D5639B-B6DA-442A-BF7A-D40C4823EBEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{69D5639B-B6DA-442A-BF7A-D40C4823EBEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{69D5639B-B6DA-442A-BF7A-D40C4823EBEF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{377298E5-6525-4E1A-BD6B-4C3663AABC6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{377298E5-6525-4E1A-BD6B-4C3663AABC6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{377298E5-6525-4E1A-BD6B-4C3663AABC6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{377298E5-6525-4E1A-BD6B-4C3663AABC6D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8E4B0AC6-FCF8-4BC4-B464-0464254F4D8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8E4B0AC6-FCF8-4BC4-B464-0464254F4D8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8E4B0AC6-FCF8-4BC4-B464-0464254F4D8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -47,12 +43,15 @@ Global
 		{D019D632-E765-4168-A033-AFC4E0FB69D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D019D632-E765-4168-A033-AFC4E0FB69D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D019D632-E765-4168-A033-AFC4E0FB69D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FDC8F1B-9932-4284-B125-D28E7DC78414}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FDC8F1B-9932-4284-B125-D28E7DC78414}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FDC8F1B-9932-4284-B125-D28E7DC78414}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FDC8F1B-9932-4284-B125-D28E7DC78414}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{377298E5-6525-4E1A-BD6B-4C3663AABC6D} = {EB14094D-0331-4B8B-98FA-A77F6837EA18}
 		{034DBB21-B9BD-42C7-ACC3-96C61325E447} = {EB14094D-0331-4B8B-98FA-A77F6837EA18}
 		{D019D632-E765-4168-A033-AFC4E0FB69D8} = {EB14094D-0331-4B8B-98FA-A77F6837EA18}
 	EndGlobalSection

@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace MarmotVoipClient.Model
 {
-	public class ContactLookupItem
-	{
-		public int Id { get; set; }
+    public class ContactLookupItem
+    {
+        public int Id { get; set; }
 
-		public string DisplayMember { get; set; }
-	}
+        public string DisplayMember { get; set; }
+    }
 }

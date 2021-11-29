@@ -115,6 +115,7 @@
     <Compile Include="Data\Lookups\ContactLookupDataService.cs" />
     <Compile Include="Events\OpenMessageDialogViewEvent.cs" />
     <Compile Include="Startup\Bootstrapper.cs" />
+    <Compile Include="Startup\Configuration.cs" />
     <Compile Include="ViewModel\ContactNavigationItemViewModel.cs" />
     <Compile Include="ViewModel\ContactNavigationViewModel.cs" />
     <Compile Include="ViewModel\CustomControls\UserItemViewModel.cs" />
@@ -186,15 +187,17 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="App.Debug.config">
+      <DependentUpon>App.config</DependentUpon>
+    </None>
+    <None Include="App.Release.config">
+      <DependentUpon>App.config</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\Repositories\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DAL\DAL.csproj">
-      <Project>{377298E5-6525-4E1A-BD6B-4C3663AABC6D}</Project>
-      <Name>DAL</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Logger\LoggingAPI.csproj">
       <Project>{034DBB21-B9BD-42C7-ACC3-96C61325E447}</Project>
       <Name>LoggingAPI</Name>

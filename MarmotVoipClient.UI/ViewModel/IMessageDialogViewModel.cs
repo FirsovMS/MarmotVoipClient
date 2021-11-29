@@ -1,7 +1,7 @@
 ﻿namespace MarmotVoipClient.UI.ViewModel
 {
-	public interface IMessageDialogViewModel
-	{
-		void Load(int contactId);
-	}
+    public interface IMessageDialogViewModel
+    {
+        void Load(int contactId);
+    }
 }

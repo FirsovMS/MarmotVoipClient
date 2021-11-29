@@ -1,6 +1,4 @@
 ﻿using Autofac;
-using DAL;
-using MarmotVoipClient.DataAccess;
 using MarmotVoipClient.UI.Data;
 using MarmotVoipClient.UI.Data.Lookups;
 using MarmotVoipClient.UI.ViewModel;
@@ -8,17 +6,13 @@ using Prism.Events;
 
 namespace MarmotVoipClient.UI.Startup
 {
-	public class Bootstrapper
+    public class Bootstrapper
 	{
 		public IContainer Bootstrap()
 		{
 			var builder = new ContainerBuilder();
 
 			builder.RegisterType<EventAggregator>().As<IEventAggregator>().SingleInstance();
-
-			var dataAccessLayer = new DataAccessLayer(Constants.CONNECTION_STRING);
-			builder.RegisterInstance(dataAccessLayer).AsSelf();			
-			builder.RegisterType<ContactsDAO>().AsSelf().SingleInstance();
 
 			// register ViewModels
 			builder.RegisterType<MainWindow>().AsSelf();

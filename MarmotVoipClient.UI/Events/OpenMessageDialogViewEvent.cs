@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MarmotVoipClient.UI.Events
 {
-	public class OpenMessageDialogViewEvent : PubSubEvent<int>
-	{
-	}
+    public class OpenMessageDialogViewEvent : PubSubEvent<int>
+    {
+    }
 }

@@ -15,14 +15,14 @@ using System.Windows.Shapes;
 
 namespace MarmotVoipClient.UI.View
 {
-	/// <summary>
-	/// Interaction logic for MessageDialogView.xaml
-	/// </summary>
-	public partial class MessageDialogView : UserControl
-	{
-		public MessageDialogView()
-		{
-			InitializeComponent();
-		}
-	}
+    /// <summary>
+    /// Interaction logic for MessageDialogView.xaml
+    /// </summary>
+    public partial class MessageDialogView : UserControl
+    {
+        public MessageDialogView()
+        {
+            InitializeComponent();
+        }
+    }
 }

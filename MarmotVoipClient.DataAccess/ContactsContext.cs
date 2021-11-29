@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace MarmotVoipClient.DataAccess
 {
-    public class ApplicationContext : DbContext
+    public class ContactsContext : DbContext
     {
-        public ApplicationContext() : base("DefaultConnection")
+        public ContactsContext() : base("DefaultConnection")
         {
         }
 
